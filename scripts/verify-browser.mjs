@@ -25,10 +25,9 @@ await page.goto("http://localhost:3000", {
 });
 
 const initial = await page.evaluate(() => {
-  const dash = document.querySelector('[aria-hidden="true"]');
-  const front = [...document.querySelectorAll("span")].find(
-    (node) => node.textContent?.trim() === "Front",
-  );
+  const dash = document.querySelector("[data-hero-dash]");
+  const front = document.querySelector('[data-hero-word="front"]');
+  const end = document.querySelector('[data-hero-word="end"]');
 
   return {
     textLength: document.body.innerText.trim().length,
@@ -40,8 +39,10 @@ const initial = await page.evaluate(() => {
         "[data-nextjs-dialog], .vite-error-overlay, #webpack-dev-server-client-overlay",
       ),
     ),
+    dashWidth: dash ? getComputedStyle(dash).width : null,
     dashTransform: dash ? getComputedStyle(dash).transform : null,
     frontTransform: front ? getComputedStyle(front).transform : null,
+    endTransform: end ? getComputedStyle(end).transform : null,
   };
 });
 
@@ -50,13 +51,13 @@ await page.mouse.wheel(0, 850);
 await page.waitForTimeout(900);
 
 const afterScroll = await page.evaluate(() => {
-  const dash = document.querySelector('[aria-hidden="true"]');
-  const spans = [...document.querySelectorAll("span")];
-  const front = spans.find((node) => node.textContent?.trim() === "Front");
-  const end = spans.find((node) => node.textContent?.trim() === "End");
+  const dash = document.querySelector("[data-hero-dash]");
+  const front = document.querySelector('[data-hero-word="front"]');
+  const end = document.querySelector('[data-hero-word="end"]');
 
   return {
     scrollY: window.scrollY,
+    dashWidth: dash ? getComputedStyle(dash).width : null,
     dashTransform: dash ? getComputedStyle(dash).transform : null,
     frontTransform: front ? getComputedStyle(front).transform : null,
     endTransform: end ? getComputedStyle(end).transform : null,

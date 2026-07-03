@@ -101,7 +101,7 @@ export function Hero() {
       className="relative flex min-h-screen overflow-hidden px-4 pb-8 pt-28 sm:px-6 lg:px-8"
     >
       <div className="flex w-full flex-col justify-end gap-8">
-        <div className="text-center font-display uppercase leading-[0.76] tracking-normal">
+        <div className="text-center font-display font-semibold uppercase leading-[0.76] tracking-normal">
           <div className="flex flex-col items-center justify-center gap-2 text-[4rem] sm:text-[6rem] md:flex-row md:gap-5 md:text-[8rem] lg:text-[11rem] xl:text-[14rem] 2xl:text-[15.5rem]">
             <span ref={frontRef} className="will-change-transform">
               Front
@@ -127,10 +127,10 @@ export function Hero() {
           ref={aboutRef}
           className="ml-auto grid max-w-xl grid-cols-[4.5rem_1fr] gap-5 pb-2 text-sm leading-relaxed text-muted will-change-transform sm:text-base"
         >
-          <p className="text-[0.66rem] font-bold uppercase tracking-[0.22em] text-foreground">
+          <span className="text-[0.66rem] font-semibold uppercase tracking-[0.22em] text-foreground">
             About
-          </p>
-          <p>
+          </span>
+          <p className="font-normal">
             I craft precise, fast interfaces for teams that care about strong
             systems and sharp details. My work sits between visual direction,
             front-end architecture, and the small interactions that make software

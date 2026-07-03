@@ -27,12 +27,12 @@ export function Projects() {
   return (
     <section id="work" className="border-t border-line px-4 py-24 sm:px-6 lg:px-8">
       <div className="mb-12 flex items-end justify-between gap-6">
-        <h2 className="font-display text-[2.7rem] uppercase leading-[0.82] sm:text-[4.5rem] lg:text-[6.5rem] xl:text-[8rem]">
+        <h2 className="font-display text-[2.7rem] font-semibold uppercase leading-[0.82] sm:text-[4.5rem] lg:text-[6.5rem] xl:text-[8rem]">
           Selected
           <br />
           Work
         </h2>
-        <p className="hidden max-w-xs text-sm leading-relaxed text-muted sm:block">
+        <p className="hidden max-w-xs text-sm font-normal leading-relaxed text-muted sm:block">
           Placeholder studies with editable titles, tags, and thumbnail colors.
         </p>
       </div>
@@ -45,10 +45,10 @@ export function Projects() {
                 className="project-media relative aspect-[1.35] overflow-hidden"
                 style={{ "--project-bg": project.color } as CSSProperties}
               >
-                <div className="absolute inset-0 flex items-end justify-between p-5 text-background opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <p className="max-w-[12rem] text-2xl font-black uppercase leading-none">
+                <div className="absolute inset-0 flex items-end justify-between p-5 text-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <h3 className="max-w-[12rem] text-2xl font-semibold uppercase leading-none">
                     {project.title}
-                  </p>
+                  </h3>
                   <span className="text-xs font-bold uppercase tracking-[0.2em]">
                     0{index + 1}
                   </span>

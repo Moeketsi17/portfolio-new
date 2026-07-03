@@ -8,11 +8,11 @@ export function Contact() {
   return (
     <section id="contact" className="border-t border-line px-4 py-24 sm:px-6 lg:px-8">
       <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr]">
-        <p className="text-[0.7rem] font-bold uppercase tracking-[0.24em] text-muted">
+        <span className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-muted">
           Contact
-        </p>
+        </span>
         <div>
-          <h2 className="max-w-5xl font-display text-[3rem] uppercase leading-[0.82] sm:text-[5rem] lg:text-[7.5rem] xl:text-[9.5rem]">
+          <h2 className="max-w-5xl font-display text-[3rem] font-semibold uppercase leading-[0.82] sm:text-[5rem] lg:text-[7.5rem] xl:text-[9.5rem]">
             Let&apos;s build the next useful thing.
           </h2>
           <div className="mt-10 flex flex-wrap gap-3">

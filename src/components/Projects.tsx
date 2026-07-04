@@ -3,7 +3,7 @@ import Image, { type StaticImageData } from "next/image";
 import eazyBizPhone from "@/images/eazy-biz-phone.png";
 import byteHire from "@/images/ByteHire (2).png";
 import leakBot from "@/images/Leakbot.png";
-import gigi from "@/images/Gigi Bottega.png"
+import gigi from "@/images/Gigi Bottega.png";
 
 type Project = {
   title: string;
@@ -30,7 +30,7 @@ const projects: Project[] = [
     title: "Gigi Bottega",
     tags: ["Wordpress", "PHP", "Woo Commerce"],
     color: "#704a3b",
-    href: "#",
+    href: "https://gigibottega.co.uk/",
     category: "eCommerce",
     description:
       "A refined digital experience crafted to capture the charm, elegance, and personality of a boutique dining destination. Built with WordPress, the site blends sophisticated design, seamless navigation, and responsive performance to showcase Bar Gigi’s unique atmosphere, curated menu, and memorable hospitality while creating an inviting experience for every guest",
@@ -74,7 +74,7 @@ export function Projects() {
 
       <div className="grid gap-px border border-line bg-line md:grid-cols-2">
         {projects.map((project, index) => (
-          <article key={project.title} className="group bg-background">
+          <article key={`${project.title}-${index}`} className="group bg-background">
             <a
               href={project.href}
               target={project.href.startsWith("http") ? "_blank" : undefined}

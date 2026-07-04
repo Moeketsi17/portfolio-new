@@ -90,6 +90,14 @@ const mobile = await mobilePage.evaluate(() => ({
   viewportWidth: window.innerWidth,
 }));
 
+const logos = await page.evaluate(() => ({
+  loadedImages: [...document.querySelectorAll(".marquee__logo")].filter(
+    (image) => image instanceof HTMLImageElement && image.naturalWidth > 0,
+  ).length,
+  textFallbacks: document.querySelectorAll(".marquee__fallback").length,
+  totalItems: document.querySelectorAll(".marquee__item").length,
+}));
+
 await browser.close();
 
 console.log(
@@ -98,6 +106,7 @@ console.log(
       initial,
       afterScroll,
       mobile,
+      logos,
       consoleMessages,
       pageErrors,
     },

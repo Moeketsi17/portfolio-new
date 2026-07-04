@@ -2,6 +2,8 @@ import type { CSSProperties } from "react";
 import Image, { type StaticImageData } from "next/image";
 import eazyBizPhone from "@/images/eazy-biz-phone.png";
 import byteHire from "@/images/ByteHire (2).png";
+import leakBot from "@/images/Leakbot.png";
+import gigi from "@/images/Gigi Bottega.png"
 
 type Project = {
   title: string;
@@ -15,16 +17,24 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "Studio Ops Dashboard",
-    tags: ["Next.js", "Design Systems", "Analytics"],
-    color: "#2f3a33",
-    href: "#",
+    title: "Eazy-Biz",
+    tags: ["Wordpress", "Javascript", "PHP"],
+    color: "#fff",
+    href: "https://leakbot.io/",
+    category: "Website",
+    description:
+      "A high-performance digital platform built to communicate innovation, trust, and practical value. Developed with WordPress, Salient, and custom functionality, the site combines clear design, seamless navigation, and conversion-focused experiences to support product education, bookings, and eligibility checks while showcasing LeakBot’s smart leak-detection technology.",
+    image: leakBot,
   },
   {
-    title: "Editorial Commerce",
-    tags: ["React", "Motion", "Headless CMS"],
+    title: "Gigi Bottega",
+    tags: ["Wordpress", "PHP", "Woo Commerce"],
     color: "#704a3b",
     href: "#",
+    category: "eCommerce",
+    description:
+      "A refined digital experience crafted to capture the charm, elegance, and personality of a boutique dining destination. Built with WordPress, the site blends sophisticated design, seamless navigation, and responsive performance to showcase Bar Gigi’s unique atmosphere, curated menu, and memorable hospitality while creating an inviting experience for every guest",
+    image: gigi,
   },
   {
     title: "Eazy-Biz",

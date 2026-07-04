@@ -6,13 +6,13 @@ export function About() {
           About
         </span>
         <div className="max-w-5xl">
-          <h2 className="font-display text-[2.6rem] font-semibold uppercase leading-[0.84] sm:text-[4.25rem] lg:text-[6rem] xl:text-[7rem]">
-            Interfaces with editorial weight and production discipline.
+          <h2 className="font-display text-[2.6rem] font-semibold uppercase leading-[0.84] sm:text-[4.25rem] lg:text-[5rem] xl:text-[6rem]">
+            From pixel to production
           </h2>
           <p className="mt-8 max-w-2xl text-lg font-normal leading-relaxed text-muted">
-            Replace this with your real story: what you build, the kinds of
-            teams you help, and the principles that guide your work. Keep it
-            direct, specific, and easy to scan.
+            I build digital products that are seamless and functional in equal measure. My background in graphic and UI/UX design, paired with full-stack development skills, gives me a rare blend of creative and technical thinking on every project.<br></br><br></br>
+My journey started in graphic design, where I built a strong eye for visual aesthetics and user-centered thinking. That foundation carried me into UI/UX design, and from there into web development, a natural progression driven by wanting to bring my own designs to life.<br></br><br></br>
+As a self-taught developer, I work with modern tools and technologies including Next.js, React.js, Tailwind CSS, Git, WordPress, PHP, Python, Django, Node.js, SQL, and the Adobe Creative Suite. This mix of design and technical ability lets me deliver polished, user-centric solutions while collaborating effectively across teams.
           </p>
         </div>
       </div>

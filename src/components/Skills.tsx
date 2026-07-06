@@ -1,46 +1,52 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
+import avroyLogo from "@/images/logos/avroy.png";
+import cloudLogo from "@/images/logos/cloud.png";
+import frampolLogo from "@/images/logos/frampol-2.png";
+import glxLogo from "@/images/logos/glx.png";
+import kfcLogo from "@/images/logos/kfc.png";
+import leakbotLogo from "@/images/logos/Leakbot-logo-40 (1).png";
+import tarsusLogo from "@/images/logos/tarsus.png";
+import vumaLogo from "@/images/logos/Vuma-Logo.png";
+import wetpaintLogo from "@/images/logos/wetpaint-logo-40 (1).webp";
+import generation from "@/images/logos/generation.png";
+
 
 type Logo = {
-  src?: string;
+  src?: StaticImageData;
   alt: string;
   width?: number;
   height?: number;
 };
 
 const logos: Logo[] = [
-  { src: "/logos/leakbot.png", alt: "LeakBot" },
-  { alt: "Vuma" },
-  { alt: "KFC" },
-  { alt: "Frampol" },
-  { alt: "Tarsus" },
-  { alt: "GLX" },
-  { alt: "Avroy Shlain" },
-  { alt: "CloudCo" },
-  { alt: "Wetpaint" },
-  { alt: "Generations Schools" },
-  { alt: "Iron Forest Packaging" },
+  { src: leakbotLogo, alt: "LeakBot" },
+  { src: vumaLogo, alt: "Vuma" },
+  { src: kfcLogo, alt: "KFC" },
+  { src: frampolLogo, alt: "Frampol" },
+  { src: tarsusLogo, alt: "Tarsus" },
+  { src: glxLogo, alt: "GLX" },
+  { src: avroyLogo, alt: "Avroy Shlain" },
+  { src: cloudLogo, alt: "CloudCo" },
+  { src: wetpaintLogo, alt: "Wetpaint" },
+  { src: generation, alt: "generation schools" },
+  
 ];
 
 function LogoItem({ logo }: { logo: Logo }) {
-  const [imageFailed, setImageFailed] = useState(false);
-
   return (
     <div className="marquee__item">
-      {imageFailed || !logo.src ? (
-        <span className="marquee__fallback">{logo.alt}</span>
-      ) : (
+      {logo.src ? (
         <Image
           src={logo.src}
           alt={logo.alt}
           width={logo.width ?? 140}
           height={logo.height ?? 48}
           className="marquee__logo"
-          unoptimized
-          onError={() => setImageFailed(true)}
         />
+      ) : (
+        <span className="marquee__fallback">{logo.alt}</span>
       )}
     </div>
   );
@@ -97,18 +103,18 @@ export function Skills() {
         }
 
         .marquee__logo {
-          height: 32px;
+          height: 72px;
           width: auto;
           object-fit: contain;
-          filter: grayscale(100%);
-          opacity: 0.62;
+          
+          opacity: 0.72;
           transition:
             filter 0.25s ease,
             opacity 0.25s ease;
         }
 
         .marquee__item:hover .marquee__logo {
-          filter: grayscale(0%);
+          filter: grayscale(100%) invert(1) brightness(1.35);
           opacity: 1;
         }
 
@@ -118,7 +124,7 @@ export function Skills() {
           font-weight: 600;
           letter-spacing: 0.18em;
           line-height: 1;
-          opacity: 0.62;
+          opacity: 0.72;
           text-transform: uppercase;
           transition: opacity 0.25s ease;
           white-space: nowrap;

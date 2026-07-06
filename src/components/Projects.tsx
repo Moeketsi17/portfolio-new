@@ -1,9 +1,16 @@
+"use client";
+
 import type { CSSProperties } from "react";
+import { useState } from "react";
 import Image, { type StaticImageData } from "next/image";
 import eazyBizPhone from "@/images/eazy-biz-phone.png";
 import byteHire from "@/images/ByteHire (2).png";
 import leakBot from "@/images/Leakbot.png";
 import gigi from "@/images/Gigi Bottega.png";
+import gritSpace from "@/images/grit space (2).png";
+import brain from "@/images/brain wave.png"
+import tom from "@/images/tomjachu.png";
+import eliashib from "@/images/eliashib lap.png";
 
 type Project = {
   title: string;
@@ -56,9 +63,52 @@ const projects: Project[] = [
       "A custom-built hiring platform designed to streamline recruitment, simplify candidate management, and create efficient hiring workflows. Developed with custom PHP, HTML, and CSS.",
     image: byteHire,
   },
+  {
+    title: "Grit Space",
+    tags: ["Wordpress", "Javascript"],
+    color: "#3c4654",
+    href: "https://gritspace.co.za/",
+    category: "Website",
+    description:
+      "Built on the Salient framework, the site delivers a clean, responsive experience for exploring available offices, submitting enquiries, and managing leasing interactions. Focused on speed, clarity, and ease of use, it helps tenants and businesses connect with the right workspace quickly while supporting smooth backend management for listings and enquiries.",
+    image: gritSpace,
+  },
+  {
+    title: "Brain Wave",
+    tags: ["React", "Javascript", "Tailwind"],
+    color: "#3c4654",
+    href: "https://brainwave-a1.netlify.app/",
+    category: "Website",
+    description:
+      "A modern AI-focused landing page built to showcase innovation, speed, and interactive design. Developed with React and Tailwind CSS, the site combines sleek visuals, responsive performance, and custom micro-animations to create a seamless user experience that brings cutting-edge digital ideas to life.",
+    image: brain,
+  },
+  {
+    title: "Tomjachu",
+    tags: ["Wordpress", "Elementor", "PHP"],
+    color: "#3c4654",
+    href: "https://tomjachu.co.za/",
+    category: "Website",
+    description:
+      "An immersive digital experience designed to reflect the beauty, comfort, and escape of a luxury bush retreat. Built with WordPress and Elementor, the site combines clean design, intuitive navigation, and responsive functionality to showcase accommodation, experiences, and essential information while making trip planning effortless for every guest.",
+    image: tom,
+  },
+  {
+    title: "Eliashi Group",
+    tags: ["Wordpress", "Elementor", "PHP"],
+    color: "#3c4654",
+    href: "hhttps://eliashibgroup.com/",
+    category: "Website",
+    description:
+      "A complete brand and digital identity built to establish credibility, professionalism, and lasting impact. From crafting the brand identity to designing and developing the website, this project combines strategic branding, modern design, and seamless functionality to position Eliashib Group with confidence, clarity, and a strong market presence.",
+    image: eliashib,
+  },
 ];
 
 export function Projects() {
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const visibleProjects = showAllProjects ? projects : projects.slice(0, 4);
+
   return (
     <section id="work" className="px-4 py-24 sm:px-6 lg:px-8">
       <div className="mb-12 flex items-end justify-between gap-6">
@@ -73,7 +123,7 @@ export function Projects() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
-        {projects.map((project, index) => (
+        {visibleProjects.map((project, index) => (
           <article key={`${project.title}-${index}`} className="group bg-background">
             <a
               href={project.href}
@@ -129,6 +179,18 @@ export function Projects() {
           </article>
         ))}
       </div>
+
+      {!showAllProjects && projects.length > visibleProjects.length ? (
+        <div className="mt-10 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setShowAllProjects(true)}
+            className="border border-foreground px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-foreground hover:bg-foreground hover:text-background"
+          >
+            View all
+          </button>
+        </div>
+      ) : null}
     </section>
   );
 }

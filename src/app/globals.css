@@ -31,12 +31,9 @@ html {
 
 body {
   min-height: 100vh;
-  background:
-    linear-gradient(rgba(170, 170, 170, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(170, 170, 170, 0.04) 1px, transparent 1px),
-    var(--background);
-  background-size: 100% 4.5rem, 4.5rem 100%, auto;
+  background: var(--background);
   color: var(--foreground);
+  background-size: 0;
 }
 
 ::selection {
@@ -54,9 +51,5 @@ button {
 }
 
 .project-media {
-  background:
-    linear-gradient(90deg, rgba(17, 17, 17, 0.6) 0 1px, transparent 1px 100%),
-    linear-gradient(rgba(17, 17, 17, 0.6) 0 1px, transparent 1px 100%),
-    var(--project-bg, #2b2a27);
-  background-size: 24px 24px;
+  background: var(--project-bg, #2b2a27);
 }

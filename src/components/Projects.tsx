@@ -60,7 +60,7 @@ const projects: Project[] = [
 
 export function Projects() {
   return (
-    <section id="work" className="border-t border-line px-4 py-24 sm:px-6 lg:px-8">
+    <section id="work" className="px-4 py-24 sm:px-6 lg:px-8">
       <div className="mb-12 flex items-end justify-between gap-6">
         <h2 className="font-display text-[2.7rem] font-semibold uppercase leading-[0.82] sm:text-[4.5rem] lg:text-[6.5rem] xl:text-[8rem]">
           Selected
@@ -72,7 +72,7 @@ export function Projects() {
         </p>
       </div>
 
-      <div className="grid gap-px border border-line bg-line md:grid-cols-2">
+      <div className="grid gap-6 md:grid-cols-2">
         {projects.map((project, index) => (
           <article key={`${project.title}-${index}`} className="group bg-background">
             <a

@@ -1,6 +1,6 @@
 export function About() {
   return (
-    <section id="about" className="border-t border-line px-4 py-24 sm:px-6 lg:px-8">
+    <section id="about" className="px-4 py-24 sm:px-6 lg:px-8">
       <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
         <span className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-muted">
           About Me

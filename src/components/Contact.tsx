@@ -6,7 +6,7 @@ const links = [
 
 export function Contact() {
   return (
-    <section id="contact" className="border-t border-line px-4 py-24 sm:px-6 lg:px-8">
+    <section id="contact" className="px-4 py-24 sm:px-6 lg:px-8">
       <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr]">
         <span className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-muted">
           Contact

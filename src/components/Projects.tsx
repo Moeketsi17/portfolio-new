@@ -11,6 +11,8 @@ import gritSpace from "@/images/grit space (2).png";
 import brain from "@/images/brain wave.png"
 import tom from "@/images/tomjachu.png";
 import eliashib from "@/images/eliashib lap.png";
+import zentry from "@/images/zentry.png";
+import skd from "@/images/skd.png";
 
 type Project = {
   title: string;
@@ -97,11 +99,31 @@ const projects: Project[] = [
     title: "Eliashi Group",
     tags: ["Wordpress", "Elementor", "PHP"],
     color: "#3c4654",
-    href: "hhttps://eliashibgroup.com/",
+    href: "https://eliashibgroup.com/",
     category: "Website",
     description:
       "A complete brand and digital identity built to establish credibility, professionalism, and lasting impact. From crafting the brand identity to designing and developing the website, this project combines strategic branding, modern design, and seamless functionality to position Eliashib Group with confidence, clarity, and a strong market presence.",
     image: eliashib,
+  },
+  {
+    title: "Zentry",
+    tags: ["Javacsript", "GSAP", "Tailwind"],
+    color: "#3c4654",
+    href: "https://zentrylandingpage.netlify.app/",
+    category: "Website",
+    description:
+      "An immersive landing page inspired by modern awwward website. Built with React, GSAP, and Tailwind CSS, it combines scroll-driven animations, seamless transitions, and cinematic storytelling to create a refined, high-impact user experience that blends technical precision with bold creative execution.",
+    image: zentry,
+  },
+  {
+    title: "SKD Tapes",
+    tags: ["Wordpress", "Salient", "PHP"],
+    color: "#3c4654",
+    href: "https://skdtapes.com/",
+    category: "Website",
+    description:
+      "A precision-focused digital platform built to reflect industrial expertise, technical innovation, and reliability. Developed with WordPress and Salient, the site combines bold design, streamlined navigation, and responsive performance to showcase SKD Tapes’ specialist adhesive, security, and conversion solutions while delivering a seamless experience for clients across diverse industries.",
+    image: skd,
   },
 ];
 

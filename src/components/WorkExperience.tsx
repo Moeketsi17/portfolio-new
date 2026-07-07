@@ -36,7 +36,7 @@ export function WorkExperience() {
         </span>
 
         <div>
-          <h2 className="font-display text-[2.7rem] font-semibold uppercase leading-[0.82] sm:text-[4.5rem] lg:text-[6.5rem] xl:text-[8rem]">
+          <h2 className="font-display text-[2rem] font-semibold uppercase leading-[0.82] sm:text-[4.5rem] lg:text-[6.5rem] xl:text-[8rem]">
             Experience
           </h2>
 

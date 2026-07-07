@@ -13,9 +13,9 @@ export function Nav() {
           L.
         </a>
         <p className="hidden justify-self-center text-center sm:block">
-          Front-End Developer
+          Front-End / Web
           <br />
-          {navMeta}
+          Developer
         </p>
         <a
           href="mailto:hello@example.com"

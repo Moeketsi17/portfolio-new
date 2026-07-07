@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "Moeketsi L. | Front-End Developer",
   description:
     "A minimalist, editorial developer portfolio for selected front-end work, systems, and experiments.",
+  icons: {
+    icon: "/fav-icon.png",
+  },
 };
 
 export default function RootLayout({

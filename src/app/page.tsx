@@ -5,6 +5,7 @@ import { Hero } from "@/components/Hero";
 import { Nav } from "@/components/Nav";
 import { Projects } from "@/components/Projects";
 import { Skills } from "@/components/Skills";
+import { Technologies } from "@/components/Technologies";
 import { WorkExperience } from "@/components/WorkExperience";
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <Projects />
       <Skills />
       <WorkExperience />
+      <Technologies />
       <Contact />
       <Footer />
     </main>

@@ -9,9 +9,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export function Hero() {
   const heroRef = useRef<HTMLElement>(null);
-  const frontRef = useRef<HTMLSpanElement>(null);
-  const endRef = useRef<HTMLSpanElement>(null);
-  const dashRef = useRef<HTMLSpanElement>(null);
+  const slashRef = useRef<HTMLSpanElement>(null);
 
   useGSAP(
     () => {
@@ -21,32 +19,24 @@ export function Hero() {
         return;
       }
 
-      const mm = gsap.matchMedia();
+      const slashScale = Math.min(window.innerHeight / 120, 7);
 
-      mm.add("(min-width: 768px)", () => {
-        const distance = Math.min(window.innerWidth * 0.17, 220);
-        const scale = Math.min(window.innerWidth / 96, 9);
-
-        const timeline = gsap.timeline({
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: "top top",
-            end: "+=100%",
-            scrub: 1,
-            pin: true,
-            anticipatePin: 1,
-          },
-        });
-
-        timeline
-          .to(frontRef.current, { x: -distance, ease: "none" }, 0)
-          .to(endRef.current, { x: distance, ease: "none" }, 0)
-          .to(dashRef.current, { scaleX: scale, ease: "none" }, 0);
-
-        return () => timeline.kill();
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: "top top",
+          end: "+=100%",
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+        },
       });
 
-      return () => mm.revert();
+      timeline
+        .to(slashRef.current, { rotate: 0, ease: "none", duration: 0.35 }, 0)
+        .to(slashRef.current, { scaleY: slashScale, ease: "none", duration: 0.65 }, 0.35);
+
+      return () => timeline.kill();
     },
     { scope: heroRef },
   );
@@ -57,23 +47,19 @@ export function Hero() {
       className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-28 sm:px-6 lg:px-8"
     >
       <div className="flex w-full flex-col items-center justify-center text-center">
-        <div className="font-display text-[4rem] font-bold uppercase leading-[0.76] tracking-normal sm:text-[6rem] md:text-[8rem] lg:text-[11rem] xl:text-[14rem] 2xl:text-[15.5rem]">
-          <div className="flex flex-col items-center justify-center gap-2 md:flex-row md:gap-5">
-            <span ref={frontRef} data-hero-word="front" className="will-change-transform">
-              Front
-            </span>
+        <h1 className="font-display text-[3.6rem] font-bold uppercase leading-[0.76] tracking-normal sm:text-[5.5rem] md:text-[7.5rem] lg:text-[clamp(6.5rem,10vw,11rem)]">
+          <span className="flex flex-wrap items-center justify-center gap-x-5 gap-y-4 md:gap-x-8 lg:flex-nowrap lg:whitespace-nowrap">
+            <span>Front-End</span>
             <span
-              ref={dashRef}
+              ref={slashRef}
               aria-hidden="true"
-              data-hero-dash
-              className="h-[0.08em] w-12 origin-center bg-foreground will-change-transform md:w-16"
+              data-hero-slash
+              className="h-[0.92em] w-[0.055em] origin-center rotate-[18deg] bg-foreground will-change-transform"
             />
-            <span ref={endRef} data-hero-word="end" className="will-change-transform">
-              End
-            </span>
-          </div>
-          <div>Developer</div>
-        </div>
+            <span>Web</span>
+          </span>
+          <span className="block">Developer</span>
+        </h1>
       </div>
     </section>
   );

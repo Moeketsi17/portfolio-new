@@ -50,7 +50,7 @@ export function Skills() {
   const track = [...logos, ...logos];
 
   return (
-    <section className="px-4 py-20 sm:px-6 lg:px-8">
+    <section id="brands" className="px-4 py-20 sm:px-6 lg:px-8">
       <div className="mb-10 flex w-full items-end justify-between gap-6 md:w-[60%]">
         <h2 className="font-display text-[2.7rem] font-semibold uppercase leading-[0.82] sm:text-[4.5rem] lg:text-[6.5rem] xl:text-[8rem]">
           Brands I’ve worked on
@@ -107,7 +107,8 @@ export function Skills() {
         }
 
         .marquee__item:hover .marquee__logo {
-          filter: grayscale(100%) invert(1) brightness(1.35);
+          filter: brightness(0) saturate(100%) invert(31%) sepia(98%)
+            saturate(1889%) hue-rotate(185deg) brightness(94%) contrast(98%);
           opacity: 1;
         }
 

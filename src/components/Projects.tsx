@@ -207,7 +207,7 @@ export function Projects() {
           <button
             type="button"
             onClick={() => setShowAllProjects(true)}
-            className="border border-foreground px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-foreground hover:bg-foreground hover:text-background"
+            className="border border-foreground px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-foreground hover:border-accent hover:bg-accent hover:text-background"
           >
             View all
           </button>

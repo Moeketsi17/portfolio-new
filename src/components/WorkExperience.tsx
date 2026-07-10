@@ -46,13 +46,13 @@ export function WorkExperience() {
                 key={`${experience.company}-${experience.period}`}
                 className="grid gap-3 border-b border-line py-6 sm:grid-cols-[1.2fr_1fr_auto] sm:items-center"
               >
-                <h3 className="text-xl font-semibold uppercase leading-tight tracking-tight sm:text-2xl">
+                <h3 className="font-sans text-xl font-semibold uppercase leading-tight tracking-tight sm:text-2xl">
                   {experience.role}
                 </h3>
-                <p className="text-sm font-bold uppercase tracking-[0.18em] text-muted">
+                <p className="font-sans text-sm font-bold uppercase tracking-[0.18em] text-muted">
                   {experience.company}
                 </p>
-                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-foreground sm:text-right">
+                <p className="font-sans text-sm font-semibold uppercase tracking-[0.16em] text-foreground sm:text-right">
                   {experience.period}
                 </p>
               </article>

@@ -46,7 +46,7 @@ export function Nav() {
           aria-expanded={isMenuOpen}
           aria-controls="site-menu"
           onClick={() => setIsMenuOpen((current) => !current)}
-          className="flex h-10 w-10 items-center justify-center justify-self-end rounded-full border border-current hover:border-accent hover:text-accent"
+          className="flex h-10 w-10 items-center justify-center justify-self-end border border-current hover:border-accent hover:text-accent"
         >
           <span className="relative h-3.5 w-4" aria-hidden="true">
             <span
@@ -106,7 +106,7 @@ export function Nav() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="rounded-full border border-current px-4 py-2 hover:border-accent hover:text-accent"
+                  className="border border-current px-4 py-2 hover:border-accent hover:text-accent"
                 >
                   {link.label}
                 </a>

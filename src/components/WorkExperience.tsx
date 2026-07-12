@@ -31,12 +31,18 @@ export function WorkExperience() {
   return (
     <section id="experience" className="px-4 py-24 sm:px-6 lg:px-8">
       <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-        <span className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-muted">
+        <span
+          data-scroll-slide
+          className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-muted"
+        >
           Work Experience
         </span>
 
         <div>
-          <h2 className="font-display text-[2rem] font-semibold uppercase leading-[0.82] sm:text-[4.5rem] lg:text-[6.5rem] xl:text-[8rem]">
+          <h2
+            data-scroll-slide
+            className="font-display text-[2rem] font-semibold uppercase leading-[0.82] sm:text-[4.5rem] lg:text-[6.5rem] xl:text-[8rem]"
+          >
             Experience
           </h2>
 
@@ -46,13 +52,22 @@ export function WorkExperience() {
                 key={`${experience.company}-${experience.period}`}
                 className="grid gap-3 border-b border-line py-6 sm:grid-cols-3 sm:items-center"
               >
-                <h3 className="font-sans text-sm font-semibold capitalize leading-tight tracking-tight sm:text-xl">
+                <h3
+                  data-scroll-slide
+                  className="font-sans text-sm font-semibold capitalize leading-tight tracking-tight sm:text-xl"
+                >
                   {experience.role} 
                 </h3>
-                <p className="font-sans text-sm font-bold capitalize tracking-[0.18em] text-muted sm:text-center">
+                <p
+                  data-scroll-slide
+                  className="font-sans text-sm font-bold capitalize tracking-[0.18em] text-muted sm:text-center"
+                >
                   {experience.company} 
                 </p>
-                <p className="font-sans text-sm font-semibold capitalize tracking-[0.16em] text-foreground sm:text-right">
+                <p
+                  data-scroll-slide
+                  className="font-sans text-sm font-semibold capitalize tracking-[0.16em] text-foreground sm:text-right"
+                >
                   {experience.period} 
                 </p>
               </article>

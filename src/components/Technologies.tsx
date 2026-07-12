@@ -48,7 +48,10 @@ export function Technologies() {
   return (
     <section id="technologies" className="px-4 py-24 sm:px-6 lg:px-8">
       <div className="mb-12 flex w-full items-end justify-between gap-6 md:w-[70%]">
-        <h2 className="font-display text-[2.7rem] font-semibold uppercase leading-[0.82] sm:text-[4.5rem] lg:text-[6.5rem] xl:text-[8rem]">
+        <h2
+          data-scroll-slide
+          className="font-display text-[2.7rem] font-semibold uppercase leading-[0.82] sm:text-[4.5rem] lg:text-[6.5rem] xl:text-[8rem]"
+        >
           Technologies I work with
         </h2>
       </div>

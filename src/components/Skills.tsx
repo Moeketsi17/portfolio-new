@@ -52,7 +52,10 @@ export function Skills() {
   return (
     <section id="brands" className="px-4 py-20 sm:px-6 lg:px-8">
       <div className="mb-10 flex w-full items-end justify-between gap-6 md:w-[60%]">
-        <h2 className="font-display text-[2.7rem] font-semibold uppercase leading-[0.82] sm:text-[4.5rem] lg:text-[6.5rem] xl:text-[8rem]">
+        <h2
+          data-scroll-slide
+          className="font-display text-[2.7rem] font-semibold uppercase leading-[0.82] sm:text-[4.5rem] lg:text-[6.5rem] xl:text-[8rem]"
+        >
           Brands I’ve worked on
         </h2>
       </div>

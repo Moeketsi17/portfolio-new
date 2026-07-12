@@ -53,3 +53,18 @@ button {
 .project-media {
   background: var(--project-bg, #2b2a27);
 }
+
+[data-scroll-slide] {
+  overflow: hidden;
+}
+
+.scroll-slide__inner {
+  display: block;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-scroll-slide] {
+    transform: none;
+  }
+}

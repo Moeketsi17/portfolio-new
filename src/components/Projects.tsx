@@ -134,12 +134,18 @@ export function Projects() {
   return (
     <section id="work" className="px-4 py-24 sm:px-6 lg:px-8">
       <div className="mb-12 flex items-end justify-between gap-6">
-        <h2 className="font-display text-[2.7rem] font-semibold uppercase leading-[0.82] sm:text-[4.5rem] lg:text-[6.5rem] xl:text-[8rem]">
+        <h2
+          data-scroll-slide
+          className="font-display text-[2.7rem] font-semibold uppercase leading-[0.82] sm:text-[4.5rem] lg:text-[6.5rem] xl:text-[8rem]"
+        >
           Selected
           <br />
           Work
         </h2>
-        <p className="hidden max-w-xs text-sm font-normal leading-relaxed text-muted sm:block">
+        <p
+          data-scroll-slide
+          className="hidden max-w-xs text-sm font-normal leading-relaxed text-muted sm:block"
+        >
           Placeholder studies with editable titles, tags, and thumbnail colors.
         </p>
       </div>
@@ -188,7 +194,7 @@ export function Projects() {
                 </div>
               </div>
               <div className="flex flex-wrap items-center justify-between gap-4 py-5">
-                <h3 className="text-xl font-semibold uppercase tracking-tight">
+                <h3 data-scroll-slide className="text-xl font-semibold uppercase tracking-tight">
                   {project.title}
                 </h3>
                 <ul className="flex flex-wrap gap-2 text-[0.65rem] font-bold uppercase tracking-[0.16em] text-muted">

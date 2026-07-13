@@ -60,7 +60,7 @@ export function Technologies() {
         {technologies.map((technology) => (
           <article
             key={technology.name}
-            className="flex min-h-40 items-center justify-center bg-background p-5"
+            className="flex min-h-24 items-center justify-center bg-background p-3 sm:min-h-28"
           >
             <Image
               src={technology.icon}

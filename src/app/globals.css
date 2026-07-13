@@ -64,7 +64,7 @@ button {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-scroll-slide] {
+  .scroll-slide__inner {
     transform: none;
   }
 }

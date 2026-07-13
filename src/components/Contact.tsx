@@ -1,7 +1,7 @@
 const links = [
-  { label: "Email", href: "mailto:hello@example.com" },
-  { label: "GitHub", href: "https://github.com/" },
-  { label: "LinkedIn", href: "https://linkedin.com/" },
+  { label: "Email", href: "mailto:moeketsi@blackdotstudios.co.za" },
+  { label: "GitHub", href: "https://github.com/Moeketsi17" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/moeketsi-l-2032a222a/" },
 ];
 
 export function Contact() {

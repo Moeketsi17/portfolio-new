@@ -12,9 +12,9 @@ import { WorkExperience } from "@/components/WorkExperience";
 export default function Home() {
   return (
     <main>
-      <ScrollSlide />
       <Nav />
       <Hero />
+      <ScrollSlide />
       <About />
       <Projects />
       <Skills />

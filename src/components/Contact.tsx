@@ -19,8 +19,16 @@ export function Contact() {
             data-scroll-slide
             className="max-w-5xl font-display text-[3rem] font-semibold uppercase leading-[0.82] sm:text-[5rem] lg:text-[7.5rem] xl:text-[9.5rem]"
           >
-            Let&apos;s build the next useful thing.
+            Let&apos;s build impactful digital products together.
           </h2>
+          <p
+            data-scroll-slide
+            className="mt-8 max-w-2xl text-lg font-normal leading-relaxed text-muted"
+          >
+            I build digital products with strategy, creativity, and functionality
+            at the core. If you&apos;re looking for someone who brings strong
+            ideas, technical skill, and real results, I&apos;d love to connect.
+          </p>
           <div className="mt-10 flex flex-wrap gap-3">
             {links.map((link) => (
               <a

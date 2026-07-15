@@ -31,24 +31,24 @@ type Project = {
 
 const projectLayouts = [
   {
-    article: "lg:col-span-7",
-    mediaRatio: "1.02",
+    article: "md:col-span-1 lg:col-span-6",
+    mediaRatio: "1",
   },
   {
-    article: "lg:col-span-5 lg:pt-12",
-    mediaRatio: "1.18",
-  },
-  {
-    article: "lg:col-span-8 lg:col-start-3",
-    mediaRatio: "1.72",
-  },
-  {
-    article: "lg:col-span-5",
-    mediaRatio: "1.1",
-  },
-  {
-    article: "lg:col-span-7 lg:pt-16",
+    article: "md:col-span-1 lg:col-span-6",
     mediaRatio: "1.35",
+  },
+  {
+    article: "md:col-span-2 lg:col-span-8 lg:col-start-3",
+    mediaRatio: "1.65",
+  },
+  {
+    article: "md:col-span-1 lg:col-span-6",
+    mediaRatio: "1.35",
+  },
+  {
+    article: "md:col-span-1 lg:col-span-6",
+    mediaRatio: "1",
   },
 ];
 
@@ -175,14 +175,16 @@ export function Projects() {
       }
 
       parallaxLayers.forEach((layer) => {
+        const mediaFrame = layer.closest(".project-media");
+
         gsap.fromTo(
           layer,
-          { yPercent: -8 },
+          { yPercent: -12 },
           {
-            yPercent: 8,
+            yPercent: 12,
             ease: "none",
             scrollTrigger: {
-              trigger: layer.parentElement,
+              trigger: mediaFrame,
               start: "top bottom",
               end: "bottom top",
               scrub: true,
@@ -218,7 +220,7 @@ export function Projects() {
           return (
             <article
               key={`${project.title}-${index}`}
-              className={`group bg-background md:col-span-1 ${layout.article}`}
+              className={`group bg-background ${layout.article}`}
             >
               <a
                 href={project.href}
@@ -226,27 +228,6 @@ export function Projects() {
                 rel={project.href.startsWith("http") ? "noreferrer" : undefined}
                 className="block"
               >
-                <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
-                  <div>
-                    {project.category ? (
-                      <p className="mb-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-muted">
-                        {project.category}
-                      </p>
-                    ) : null}
-                    <h3
-                      data-scroll-slide
-                      className="max-w-xl text-2xl font-semibold uppercase leading-none tracking-tight md:text-3xl"
-                    >
-                      {project.title}
-                    </h3>
-                  </div>
-                  <ul className="flex max-w-xs flex-wrap justify-end gap-2 text-right text-[0.65rem] font-bold uppercase tracking-[0.16em] text-muted">
-                    {project.tags.map((tag) => (
-                      <li key={tag}>{tag}</li>
-                    ))}
-                  </ul>
-                </div>
-
                 <div
                   className="project-media relative overflow-hidden"
                   style={
@@ -259,7 +240,7 @@ export function Projects() {
                   {project.image ? (
                     <div
                       data-project-parallax
-                      className="absolute inset-x-0 -inset-y-[10%] will-change-transform"
+                      className="absolute inset-x-0 -inset-y-[15%] will-change-transform"
                     >
                       <Image
                         src={project.image}
@@ -290,6 +271,27 @@ export function Projects() {
                       0{index + 1}
                     </span>
                   </div>
+                </div>
+
+                <div className="mt-5 flex flex-wrap items-end justify-between gap-4">
+                  <div>
+                    {project.category ? (
+                      <p className="mb-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-muted">
+                        {project.category}
+                      </p>
+                    ) : null}
+                    <h3
+                      data-scroll-slide
+                      className="max-w-xl text-2xl font-semibold uppercase leading-none tracking-tight md:text-3xl"
+                    >
+                      {project.title}
+                    </h3>
+                  </div>
+                  <ul className="flex max-w-xs flex-wrap justify-start gap-2 text-left text-[0.65rem] font-bold uppercase tracking-[0.16em] text-muted sm:justify-end sm:text-right">
+                    {project.tags.map((tag) => (
+                      <li key={tag}>{tag}</li>
+                    ))}
+                  </ul>
                 </div>
               </a>
             </article>

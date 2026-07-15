@@ -1,10 +1,9 @@
 "use client";
 
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+gsap.registerPlugin(useGSAP);
 
 export function ScrollSlide() {
   useGSAP(() => {
@@ -41,7 +40,18 @@ export function ScrollSlide() {
       return;
     }
 
-    const setupId = window.setTimeout(() => {
+    let observer: IntersectionObserver | undefined;
+    let animationFrameId = 0;
+
+    const revealElement = (innerElement: Element) => {
+      gsap.to(innerElement, {
+        yPercent: 0,
+        duration: 0.9,
+        ease: "power3.out",
+      });
+    };
+
+    const revealVisibleElements = () => {
       innerElements.forEach((innerElement) => {
         const parentElement = innerElement.parentElement;
 
@@ -49,40 +59,66 @@ export function ScrollSlide() {
           return;
         }
 
-        const isBelowViewport = parentElement.getBoundingClientRect().top > window.innerHeight;
+        const bounds = parentElement.getBoundingClientRect();
 
-        if (isBelowViewport) {
-          gsap.set(innerElement, { yPercent: 110 });
-        } else {
-          gsap.set(innerElement, { yPercent: 0 });
+        if (bounds.top < window.innerHeight * 0.85 && bounds.bottom > 0) {
+          revealElement(innerElement);
+          observer?.unobserve(parentElement);
+        }
+      });
+    };
+
+    const scheduleRevealCheck = () => {
+      window.cancelAnimationFrame(animationFrameId);
+      animationFrameId = window.requestAnimationFrame(revealVisibleElements);
+    };
+
+    const setupId = window.setTimeout(() => {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            const innerElement = entry.target.firstElementChild;
+
+            if (!innerElement?.classList.contains("scroll-slide__inner")) {
+              return;
+            }
+
+            revealElement(innerElement);
+            observer?.unobserve(entry.target);
+          });
+        },
+        { rootMargin: "0px 0px -15% 0px" },
+      );
+
+      innerElements.forEach((innerElement) => {
+        const parentElement = innerElement.parentElement;
+
+        if (!parentElement) {
+          return;
         }
 
-        gsap.to(innerElement, {
-          yPercent: 0,
-          duration: 0.9,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: parentElement,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-            invalidateOnRefresh: true,
-            onLeaveBack: () => {
-              gsap.set(innerElement, { yPercent: 110 });
-            },
-          },
-        });
+        const isBelowRevealLine =
+          parentElement.getBoundingClientRect().top > window.innerHeight * 0.85;
+
+        gsap.set(innerElement, { yPercent: isBelowRevealLine ? 110 : 0 });
+        observer?.observe(parentElement);
       });
 
-      ScrollTrigger.refresh();
+      revealVisibleElements();
+      window.addEventListener("scroll", scheduleRevealCheck, { passive: true });
+      window.addEventListener("resize", scheduleRevealCheck);
     }, 150);
 
     return () => {
       window.clearTimeout(setupId);
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.trigger?.hasAttribute("data-scroll-slide")) {
-          trigger.kill();
-        }
-      });
+      window.cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("scroll", scheduleRevealCheck);
+      window.removeEventListener("resize", scheduleRevealCheck);
+      observer?.disconnect();
 
       innerElements.forEach((innerElement) => {
         const parent = innerElement.parentElement;

@@ -280,10 +280,7 @@ export function Projects() {
                         {project.category}
                       </p>
                     ) : null}
-                    <h3
-                      data-scroll-slide
-                      className="max-w-xl text-2xl font-semibold uppercase leading-none tracking-tight md:text-3xl"
-                    >
+                    <h3 className="max-w-xl text-2xl font-semibold uppercase leading-none tracking-tight md:text-3xl">
                       {project.title}
                     </h3>
                   </div>

@@ -6,22 +6,28 @@ import { Nav } from "@/components/Nav";
 import { Projects } from "@/components/Projects";
 import { ScrollSlide } from "@/components/ScrollSlide";
 import { Skills } from "@/components/Skills";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { Technologies } from "@/components/Technologies";
 import { WorkExperience } from "@/components/WorkExperience";
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Nav />
-      <Hero />
-      <ScrollSlide />
-      <About />
-      <Projects />
-      <Skills />
-      <WorkExperience />
-      <Technologies />
-      <Contact />
-      <Footer />
-    </main>
+      <SmoothScroll />
+      <div id="smooth-wrapper">
+        <main id="smooth-content">
+          <Hero />
+          <ScrollSlide />
+          <About />
+          <Projects />
+          <Skills />
+          <WorkExperience />
+          <Technologies />
+          <Contact />
+          <Footer />
+        </main>
+      </div>
+    </>
   );
 }

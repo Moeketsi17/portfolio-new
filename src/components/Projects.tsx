@@ -1,18 +1,23 @@
 "use client";
 
 import type { CSSProperties } from "react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image, { type StaticImageData } from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import eazyBizPhone from "@/images/eazy-biz-phone.png";
 import byteHire from "@/images/ByteHire (2).png";
 import leakBot from "@/images/Leakbot.png";
 import gigi from "@/images/Gigi Bottega.png";
 import gritSpace from "@/images/grit space (2).png";
-import brain from "@/images/brain wave.png"
+import brain from "@/images/brain wave.png";
 import tom from "@/images/tomjachu.png";
 import eliashib from "@/images/eliashib lap.png";
 import zentry from "@/images/zentry.png";
 import skd from "@/images/skd.png";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 type Project = {
   title: string;
@@ -23,6 +28,29 @@ type Project = {
   description?: string;
   image?: StaticImageData;
 };
+
+const projectLayouts = [
+  {
+    article: "lg:col-span-7",
+    mediaRatio: "1.02",
+  },
+  {
+    article: "lg:col-span-5 lg:pt-12",
+    mediaRatio: "1.18",
+  },
+  {
+    article: "lg:col-span-8 lg:col-start-3",
+    mediaRatio: "1.72",
+  },
+  {
+    article: "lg:col-span-5",
+    mediaRatio: "1.1",
+  },
+  {
+    article: "lg:col-span-7 lg:pt-16",
+    mediaRatio: "1.35",
+  },
+];
 
 const projects: Project[] = [
   {
@@ -128,11 +156,49 @@ const projects: Project[] = [
 ];
 
 export function Projects() {
+  const sectionRef = useRef<HTMLElement>(null);
   const [showAllProjects, setShowAllProjects] = useState(false);
-  const visibleProjects = showAllProjects ? projects : projects.slice(0, 4);
+  const visibleProjects = showAllProjects ? projects : projects.slice(0, 5);
+
+  useGSAP(
+    () => {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const parallaxLayers = gsap.utils.toArray<HTMLElement>("[data-project-parallax]");
+
+      if (parallaxLayers.length === 0) {
+        return;
+      }
+
+      if (reduceMotion) {
+        gsap.set(parallaxLayers, { yPercent: 0 });
+        return;
+      }
+
+      parallaxLayers.forEach((layer) => {
+        gsap.fromTo(
+          layer,
+          { yPercent: -8 },
+          {
+            yPercent: 8,
+            ease: "none",
+            scrollTrigger: {
+              trigger: layer.parentElement,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+              invalidateOnRefresh: true,
+            },
+          },
+        );
+      });
+
+      ScrollTrigger.refresh();
+    },
+    { scope: sectionRef, dependencies: [visibleProjects.length], revertOnUpdate: true },
+  );
 
   return (
-    <section id="work" className="px-4 py-24 sm:px-6 lg:px-8">
+    <section ref={sectionRef} id="work" className="px-4 py-24 sm:px-6 lg:px-8">
       <div className="mb-12 flex items-end justify-between gap-6">
         <h2
           data-scroll-slide
@@ -145,62 +211,90 @@ export function Projects() {
         
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2">
-        {visibleProjects.map((project, index) => (
-          <article key={`${project.title}-${index}`} className="group bg-background">
-            <a
-              href={project.href}
-              target={project.href.startsWith("http") ? "_blank" : undefined}
-              rel={project.href.startsWith("http") ? "noreferrer" : undefined}
-              className="block p-3"
+      <div className="grid gap-x-10 gap-y-20 md:grid-cols-2 lg:grid-cols-12 lg:gap-x-16 lg:gap-y-32">
+        {visibleProjects.map((project, index) => {
+          const layout = projectLayouts[index % projectLayouts.length];
+
+          return (
+            <article
+              key={`${project.title}-${index}`}
+              className={`group bg-background md:col-span-1 ${layout.article}`}
             >
-              <div
-                className="project-media relative aspect-[1.35] overflow-hidden"
-                style={{ "--project-bg": project.color } as CSSProperties}
+              <a
+                href={project.href}
+                target={project.href.startsWith("http") ? "_blank" : undefined}
+                rel={project.href.startsWith("http") ? "noreferrer" : undefined}
+                className="block"
               >
-                {project.image ? (
-                  <Image
-                    src={project.image}
-                    alt={`${project.title} project preview`}
-                    fill
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
-                ) : null}
-                <div className="absolute inset-0 flex items-end justify-between gap-5 bg-background/95 p-5 text-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <div className="max-w-md">
+                <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
+                  <div>
                     {project.category ? (
                       <p className="mb-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-muted">
                         {project.category}
                       </p>
                     ) : null}
-                    <h3 className="max-w-[12rem] text-2xl font-semibold uppercase leading-none">
+                    <h3
+                      data-scroll-slide
+                      className="max-w-xl text-2xl font-semibold uppercase leading-none tracking-tight md:text-3xl"
+                    >
                       {project.title}
                     </h3>
-                    {project.description ? (
-                      <p className="mt-4 max-w-sm text-sm font-normal normal-case leading-relaxed tracking-normal text-muted">
-                        {project.description}
-                      </p>
-                    ) : null}
                   </div>
-                  <span className="text-xs font-bold uppercase tracking-[0.2em]">
-                    0{index + 1}
-                  </span>
+                  <ul className="flex max-w-xs flex-wrap justify-end gap-2 text-right text-[0.65rem] font-bold uppercase tracking-[0.16em] text-muted">
+                    {project.tags.map((tag) => (
+                      <li key={tag}>{tag}</li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-              <div className="flex flex-wrap items-center justify-between gap-4 py-5">
-                <h3 data-scroll-slide className="text-xl font-semibold uppercase tracking-tight">
-                  {project.title}
-                </h3>
-                <ul className="flex flex-wrap gap-2 text-[0.65rem] font-bold uppercase tracking-[0.16em] text-muted">
-                  {project.tags.map((tag) => (
-                    <li key={tag}>{tag}</li>
-                  ))}
-                </ul>
-              </div>
-            </a>
-          </article>
-        ))}
+
+                <div
+                  className="project-media relative overflow-hidden"
+                  style={
+                    {
+                      "--project-bg": project.color,
+                      aspectRatio: layout.mediaRatio,
+                    } as CSSProperties
+                  }
+                >
+                  {project.image ? (
+                    <div
+                      data-project-parallax
+                      className="absolute inset-x-0 -inset-y-[10%] will-change-transform"
+                    >
+                      <Image
+                        src={project.image}
+                        alt={`${project.title} project preview`}
+                        fill
+                        sizes="(min-width: 1024px) 60vw, (min-width: 768px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      />
+                    </div>
+                  ) : null}
+                  <div className="absolute inset-0 flex items-end justify-between gap-5 bg-background/95 p-5 text-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <div className="max-w-md">
+                      {project.category ? (
+                        <p className="mb-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-muted">
+                          {project.category}
+                        </p>
+                      ) : null}
+                      <h3 className="max-w-[12rem] text-2xl font-semibold uppercase leading-none">
+                        {project.title}
+                      </h3>
+                      {project.description ? (
+                        <p className="mt-4 max-w-sm text-sm font-normal normal-case leading-relaxed tracking-normal text-muted">
+                          {project.description}
+                        </p>
+                      ) : null}
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-[0.2em]">
+                      0{index + 1}
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </article>
+          );
+        })}
       </div>
 
       {!showAllProjects && projects.length > visibleProjects.length ? (

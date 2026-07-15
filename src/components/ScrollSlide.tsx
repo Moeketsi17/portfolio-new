@@ -41,19 +41,34 @@ export function ScrollSlide() {
       return;
     }
 
-    gsap.set(innerElements, { yPercent: 110 });
-
     const setupId = window.setTimeout(() => {
       innerElements.forEach((innerElement) => {
+        const parentElement = innerElement.parentElement;
+
+        if (!parentElement) {
+          return;
+        }
+
+        const isBelowViewport = parentElement.getBoundingClientRect().top > window.innerHeight;
+
+        if (isBelowViewport) {
+          gsap.set(innerElement, { yPercent: 110 });
+        } else {
+          gsap.set(innerElement, { yPercent: 0 });
+        }
+
         gsap.to(innerElement, {
           yPercent: 0,
           duration: 0.9,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: innerElement.parentElement,
+            trigger: parentElement,
             start: "top 85%",
             toggleActions: "play none none reverse",
             invalidateOnRefresh: true,
+            onLeaveBack: () => {
+              gsap.set(innerElement, { yPercent: 110 });
+            },
           },
         });
       });

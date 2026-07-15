@@ -142,12 +142,7 @@ export function Projects() {
           <br />
           Work
         </h2>
-        <p
-          data-scroll-slide
-          className="hidden max-w-xs text-sm font-normal leading-relaxed text-muted sm:block"
-        >
-          Placeholder studies with editable titles, tags, and thumbnail colors.
-        </p>
+        
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">

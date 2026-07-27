@@ -13,7 +13,18 @@ export const metadata: Metadata = {
   description:
     "A minimalist, editorial developer portfolio for selected front-end work, systems, and experiments.",
   icons: {
-    icon: "/fav-icon.png",
+    icon: [
+      {
+        url: "/fav-icon.png",
+        type: "image/png",
+      },
+      {
+        url: "/favicon.png",
+        type: "image/png",
+      },
+    ],
+    shortcut: "/fav-icon.png",
+    apple: "/fav-icon.png",
   },
 };
 

@@ -31,6 +31,10 @@ export function Hero() {
         const frontEndBounds = frontEndRef.current.getBoundingClientRect();
         const slashBounds = slashRef.current.getBoundingClientRect();
         const webBounds = webRef.current.getBoundingClientRect();
+        if (slashBounds.height === 0) {
+          return 1;
+        }
+
         const finalGap =
           webBounds.left + wordDistance - (frontEndBounds.right - wordDistance);
 
@@ -79,7 +83,7 @@ export function Hero() {
               ref={slashRef}
               aria-hidden="true"
               data-hero-slash
-              className="block h-[0.92em] w-[0.055em] shrink-0 origin-center bg-foreground will-change-transform"
+              className="hidden h-[0.92em] w-[0.055em] shrink-0 origin-center bg-foreground will-change-transform sm:block"
             />
             <span ref={webRef} className="will-change-transform">
               Web

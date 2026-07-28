@@ -50,23 +50,23 @@ export function WorkExperience() {
             {experiences.map((experience) => (
               <article
                 key={`${experience.company}-${experience.period}`}
-                className="grid gap-3 border-b border-line py-6 sm:grid-cols-3 sm:items-center"
+                className="grid gap-2 border-b border-line py-5 sm:grid-cols-3 sm:items-center sm:gap-3 sm:py-6"
               >
                 <h3
                   data-scroll-slide
-                  className="font-sans text-sm font-semibold capitalize leading-tight tracking-tight sm:text-xl"
+                  className="whitespace-nowrap font-sans text-xs font-semibold capitalize leading-tight tracking-tight sm:text-xl"
                 >
                   {experience.role} 
                 </h3>
                 <p
                   data-scroll-slide
-                  className="font-sans text-sm font-bold capitalize tracking-[0.18em] text-muted sm:text-center"
+                  className="whitespace-nowrap font-sans text-[0.65rem] font-bold capitalize tracking-[0.12em] text-muted sm:text-center sm:text-sm sm:tracking-[0.18em]"
                 >
                   {experience.company} 
                 </p>
                 <p
                   data-scroll-slide
-                  className="font-sans text-sm font-semibold capitalize tracking-[0.16em] text-foreground sm:text-right"
+                  className="whitespace-nowrap font-sans text-[0.65rem] font-semibold capitalize tracking-[0.12em] text-foreground sm:text-right sm:text-sm sm:tracking-[0.16em]"
                 >
                   {experience.period} 
                 </p>

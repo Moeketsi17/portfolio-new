@@ -54,19 +54,19 @@ export function WorkExperience() {
               >
                 <h3
                   data-scroll-slide
-                  className="whitespace-nowrap font-sans text-xs font-semibold capitalize leading-tight tracking-tight sm:text-xl"
+                  className="whitespace-nowrap font-sans text-base font-semibold capitalize leading-tight tracking-tight"
                 >
                   {experience.role} 
                 </h3>
                 <p
                   data-scroll-slide
-                  className="whitespace-nowrap font-sans text-[0.65rem] font-bold capitalize tracking-[0.12em] text-muted sm:text-center sm:text-sm sm:tracking-[0.18em]"
+                  className="whitespace-nowrap font-sans text-base font-bold capitalize tracking-[0.12em] text-muted sm:text-center sm:tracking-[0.18em]"
                 >
                   {experience.company} 
                 </p>
                 <p
                   data-scroll-slide
-                  className="whitespace-nowrap font-sans text-[0.65rem] font-semibold capitalize tracking-[0.12em] text-foreground sm:text-right sm:text-sm sm:tracking-[0.16em]"
+                  className="whitespace-nowrap font-sans text-base font-semibold capitalize tracking-[0.12em] text-foreground sm:text-right sm:tracking-[0.16em]"
                 >
                   {experience.period} 
                 </p>

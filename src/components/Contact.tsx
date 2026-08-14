@@ -34,7 +34,7 @@ export function Contact() {
               <a
                 key={link.label}
                 href={link.href}
-                className="border border-foreground px-5 py-3 text-xs font-bold uppercase tracking-[0.18em] hover:border-accent hover:bg-accent hover:text-background"
+                className="border border-foreground px-5 py-3 text-xs font-bold uppercase tracking-[0.18em] hover:border-accent hover:bg-accent hover:text-white"
               >
                 {link.label}
               </a>

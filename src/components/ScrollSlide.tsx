@@ -109,14 +109,12 @@ export function ScrollSlide() {
       });
 
       revealVisibleElements();
-      window.addEventListener("scroll", scheduleRevealCheck, { passive: true });
       window.addEventListener("resize", scheduleRevealCheck);
     }, 150);
 
     return () => {
       window.clearTimeout(setupId);
       window.cancelAnimationFrame(animationFrameId);
-      window.removeEventListener("scroll", scheduleRevealCheck);
       window.removeEventListener("resize", scheduleRevealCheck);
       observer?.disconnect();
 

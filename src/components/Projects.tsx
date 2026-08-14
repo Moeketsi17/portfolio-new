@@ -74,7 +74,7 @@ const projects: Project[] = [
     image: gigi,
   },
   {
-    title: "Eazy-Biz",
+    title: "Eazy-Biz Ops",
     tags: ["React", "Supabase", "Business Ops"],
     color: "#fff",
     href: "https://eazybiz.blackdotstudios.co.za/",
@@ -251,13 +251,8 @@ export function Projects() {
                       />
                     </div>
                   ) : null}
-                  <div className="absolute inset-0 flex items-end justify-between gap-5 bg-background/95 p-5 text-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="absolute inset-0 flex items-end bg-background/95 p-5 text-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <div className="max-w-md">
-                      {project.category ? (
-                        <p className="mb-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-muted">
-                          {project.category}
-                        </p>
-                      ) : null}
                       <h3 className="max-w-[12rem] text-2xl font-semibold uppercase leading-none">
                         {project.title}
                       </h3>
@@ -267,9 +262,6 @@ export function Projects() {
                         </p>
                       ) : null}
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-[0.2em]">
-                      0{index + 1}
-                    </span>
                   </div>
                 </div>
 
@@ -301,7 +293,7 @@ export function Projects() {
           <button
             type="button"
             onClick={() => setShowAllProjects(true)}
-            className="border border-foreground px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-foreground hover:border-accent hover:bg-accent hover:text-background"
+            className="border border-foreground px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-foreground hover:border-accent hover:bg-accent hover:text-white"
           >
             View all
           </button>

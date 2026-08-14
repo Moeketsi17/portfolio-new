@@ -31,7 +31,7 @@ export function Nav() {
             : "text-[var(--nav-difference-source)] mix-blend-difference"
         }`}
       >
-        <a href="#" className="leading-[0.95] hover:text-accent">
+        <a href="#" className="leading-[0.95] transition-opacity hover:opacity-70">
           Moeketsi
           <br />
           L.
@@ -107,7 +107,7 @@ export function Nav() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="border border-current px-4 py-2 hover:border-accent hover:text-accent"
+                  className="border border-current px-4 py-2 hover:border-accent hover:text-foreground"
                 >
                   {link.label}
                 </a>

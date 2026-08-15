@@ -71,47 +71,49 @@ export function Nav() {
 
       <div
         id="site-menu"
-        className={`fixed inset-0 bg-background px-4 pb-8 pt-28 text-foreground transition-all duration-300 sm:px-6 lg:px-8 ${
+        className={`fixed inset-0 overflow-y-auto bg-background px-4 pb-8 pt-28 text-foreground transition-all duration-300 sm:px-6 lg:px-8 ${
           isMenuOpen
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
         }`}
       >
         <div
-          className={`flex h-full flex-col items-start justify-between gap-8 text-left transition-transform duration-300 ${
+          className={`flex h-full flex-col justify-end text-left transition-transform duration-300 ${
             isMenuOpen ? "translate-y-0" : "-translate-y-4"
           }`}
         >
-          <ul className="w-full max-w-[min(100%,72rem)] space-y-3 font-display text-[clamp(1.85rem,6vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-normal sm:space-y-4">
-            {menuItems.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block hover:text-accent"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          <div className="grid w-full justify-items-start gap-5 border-t border-line pt-6 text-left text-[0.7rem] font-bold uppercase tracking-[0.2em] text-muted">
-            <p className="max-w-md">
-              Contact
-              <br />
-              Available for selected web and front-end projects.
-            </p>
-            <div className="flex flex-wrap justify-start gap-3">
-              {contactLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="border border-current px-4 py-2 hover:border-accent hover:text-foreground"
-                >
-                  {link.label}
-                </a>
+          <div className="flex flex-col gap-10 sm:flex-row sm:items-end sm:justify-between">
+            <ul className="space-y-3 font-display text-[clamp(1.5rem,3.5vh+2vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-normal sm:space-y-4">
+              {menuItems.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block hover:text-accent"
+                  >
+                    {item.label}
+                  </a>
+                </li>
               ))}
+            </ul>
+
+            <div className="grid gap-5 text-left text-[0.7rem] font-bold uppercase tracking-[0.2em] text-muted sm:border-l sm:border-line sm:pl-10">
+              <p className="max-w-md">
+                Contact
+                <br />
+              
+              </p>
+              <div className="flex flex-nowrap gap-3">
+                {contactLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="whitespace-nowrap border border-current px-4 py-2 hover:border-accent hover:text-foreground"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>

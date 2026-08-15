@@ -45,7 +45,7 @@ export function WorkExperience() {
         </span>
       </div>
 
-      <div className="mt-10 border-t border-line lg:max-w-4xl">
+      <div className="mt-10 border-t border-line">
         {experiences.map((experience) => (
           <article
             key={`${experience.company}-${experience.period}`}

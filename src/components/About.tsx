@@ -9,7 +9,7 @@ export function About() {
       </span>
       <h2
         data-scroll-slide
-        className="mt-4 font-display text-[2.6rem] font-semibold uppercase leading-[0.84] sm:text-[4.25rem] lg:text-[5rem] xl:text-[6rem]"
+        className="mt-4 font-display text-[2.7rem] font-semibold uppercase leading-[0.84] sm:text-[4.5rem] lg:text-[6.5rem] xl:text-[8rem]"
       >
         From pixel to production
       </h2>

@@ -74,6 +74,11 @@ export function ScrollSlide() {
     };
 
     const setupId = window.setTimeout(() => {
+      if (!("IntersectionObserver" in window)) {
+        innerElements.forEach((innerElement) => gsap.set(innerElement, { yPercent: 0 }));
+        return;
+      }
+
       observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -124,6 +129,8 @@ export function ScrollSlide() {
         if (!parent) {
           return;
         }
+
+        gsap.killTweensOf(innerElement);
 
         while (innerElement.firstChild) {
           parent.insertBefore(innerElement.firstChild, innerElement);

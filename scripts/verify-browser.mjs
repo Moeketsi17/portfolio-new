@@ -25,9 +25,13 @@ await page.goto("http://localhost:3000", {
 });
 
 const initial = await page.evaluate(() => {
-  const dash = document.querySelector("[data-hero-dash]");
-  const front = document.querySelector('[data-hero-word="front"]');
-  const end = document.querySelector('[data-hero-word="end"]');
+  const slash = document.querySelector("[data-hero-slash]");
+  const front = [...document.querySelectorAll("span")].find(
+    (element) => element.textContent?.trim() === "Front-End",
+  );
+  const web = [...document.querySelectorAll("span")].find(
+    (element) => element.textContent?.trim() === "Web",
+  );
 
   return {
     textLength: document.body.innerText.trim().length,
@@ -39,10 +43,10 @@ const initial = await page.evaluate(() => {
         "[data-nextjs-dialog], .vite-error-overlay, #webpack-dev-server-client-overlay",
       ),
     ),
-    dashWidth: dash ? getComputedStyle(dash).width : null,
-    dashTransform: dash ? getComputedStyle(dash).transform : null,
+    slashWidth: slash ? getComputedStyle(slash).width : null,
+    slashTransform: slash ? getComputedStyle(slash).transform : null,
     frontTransform: front ? getComputedStyle(front).transform : null,
-    endTransform: end ? getComputedStyle(end).transform : null,
+    webTransform: web ? getComputedStyle(web).transform : null,
   };
 });
 
@@ -51,16 +55,20 @@ await page.mouse.wheel(0, 850);
 await page.waitForTimeout(900);
 
 const afterScroll = await page.evaluate(() => {
-  const dash = document.querySelector("[data-hero-dash]");
-  const front = document.querySelector('[data-hero-word="front"]');
-  const end = document.querySelector('[data-hero-word="end"]');
+  const slash = document.querySelector("[data-hero-slash]");
+  const front = [...document.querySelectorAll("span")].find(
+    (element) => element.textContent?.trim() === "Front-End",
+  );
+  const web = [...document.querySelectorAll("span")].find(
+    (element) => element.textContent?.trim() === "Web",
+  );
 
   return {
     scrollY: window.scrollY,
-    dashWidth: dash ? getComputedStyle(dash).width : null,
-    dashTransform: dash ? getComputedStyle(dash).transform : null,
+    slashWidth: slash ? getComputedStyle(slash).width : null,
+    slashTransform: slash ? getComputedStyle(slash).transform : null,
     frontTransform: front ? getComputedStyle(front).transform : null,
-    endTransform: end ? getComputedStyle(end).transform : null,
+    webTransform: web ? getComputedStyle(web).transform : null,
   };
 });
 

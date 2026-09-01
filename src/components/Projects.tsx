@@ -175,7 +175,7 @@ export function Projects() {
       }
 
       parallaxLayers.forEach((layer) => {
-        const mediaFrame = layer.closest(".project-media");
+        const mediaFrame = layer.closest(".project-media") ?? layer;
 
         gsap.fromTo(
           layer,
@@ -194,7 +194,11 @@ export function Projects() {
         );
       });
 
-      ScrollTrigger.refresh();
+      const refreshFrame = window.requestAnimationFrame(() => ScrollTrigger.refresh());
+
+      return () => {
+        window.cancelAnimationFrame(refreshFrame);
+      };
     },
     { scope: sectionRef, dependencies: [visibleProjects.length], revertOnUpdate: true },
   );
@@ -248,6 +252,7 @@ export function Projects() {
                         fill
                         sizes="(min-width: 1024px) 60vw, (min-width: 768px) 50vw, 100vw"
                         className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        onLoad={() => ScrollTrigger.refresh()}
                       />
                     </div>
                   ) : null}

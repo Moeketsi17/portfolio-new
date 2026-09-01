@@ -2,31 +2,31 @@
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export function SmoothScroll() {
   useGSAP(() => {
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (reduceMotion) {
+    if (typeof window === "undefined") {
       return;
     }
 
-    const smoother = ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-      smooth: 1,
-      effects: true,
-      smoothTouch: 0.1,
-    });
+    ScrollTrigger.normalizeScroll(false);
 
-    ScrollTrigger.refresh();
+    const refresh = () => ScrollTrigger.refresh();
+    const refreshFrame = window.requestAnimationFrame(refresh);
+    const refreshTimeout = window.setTimeout(refresh, 300);
+
+    window.addEventListener("load", refresh, { once: true });
+    window.addEventListener("resize", refresh);
+    document.fonts?.ready.then(refresh).catch(() => undefined);
 
     return () => {
-      smoother.kill();
+      window.cancelAnimationFrame(refreshFrame);
+      window.clearTimeout(refreshTimeout);
+      window.removeEventListener("load", refresh);
+      window.removeEventListener("resize", refresh);
     };
   }, []);
 

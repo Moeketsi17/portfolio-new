@@ -144,14 +144,6 @@ export function Skills() {
           }
         }
 
-        @media (prefers-reduced-motion: reduce) {
-          .marquee__track {
-            animation: none;
-            flex-wrap: wrap;
-            justify-content: center;
-            width: 100%;
-          }
-        }
       `}</style>
     </section>
   );

@@ -33,13 +33,6 @@ export function ScrollSlide() {
       return inner;
     });
 
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (reduceMotion) {
-      gsap.set(innerElements, { yPercent: 0 });
-      return;
-    }
-
     let observer: IntersectionObserver | undefined;
     let animationFrameId = 0;
 

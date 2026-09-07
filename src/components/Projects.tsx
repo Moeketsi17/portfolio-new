@@ -162,15 +162,9 @@ export function Projects() {
 
   useGSAP(
     () => {
-      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const parallaxLayers = gsap.utils.toArray<HTMLElement>("[data-project-parallax]");
 
       if (parallaxLayers.length === 0) {
-        return;
-      }
-
-      if (reduceMotion) {
-        gsap.set(parallaxLayers, { yPercent: 0 });
         return;
       }
 

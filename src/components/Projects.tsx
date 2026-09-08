@@ -16,6 +16,11 @@ import tom from "@/images/tomjachu.png";
 import eliashib from "@/images/eliashib lap.png";
 import zentry from "@/images/zentry.png";
 import skd from "@/images/skd.png";
+import vuma from "@/images/vuma.png";
+import sadv from "@/images/sadv.png";
+import services012 from "@/images/012-services.png";
+import frampol from "@/images/frampol.png";
+import ifPackaging from "@/images/if-packaging.png";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -152,6 +157,56 @@ const projects: Project[] = [
     description:
       "A precision-focused digital platform built to reflect industrial expertise, technical innovation, and reliability. Developed with WordPress and Salient, the site combines bold design, streamlined navigation, and responsive performance to showcase SKD Tapes’ specialist adhesive, security, and conversion solutions while delivering a seamless experience for clients across diverse industries.",
     image: skd,
+  },
+  {
+    title: "Vuma",
+    tags: ["Wordpress", "Divi", "PHP"],
+    color: "#e6007e",
+    href: "https://getvumafibre.co.za/",
+    category: "Website",
+    description:
+      "A streamlined digital platform built to drive lead generation and simplify connectivity. Developed with WordPress and Divi, the site pairs bold design, intuitive navigation, and smooth interactions to help customers explore high-speed fibre, check coverage, and get connected with confidence.",
+    image: vuma,
+  },
+  {
+    title: "SADV",
+    tags: ["Wordpress", "PHP", "Javascript"],
+    color: "#0a3d91",
+    href: "https://sadv.co.za/",
+    category: "Website",
+    description:
+      "A vibrant, campaign-driven platform built to make affordable prepaid fibre feel effortless and rewarding. Developed with WordPress and custom functionality, the site blends playful visuals, clear package comparisons, coverage checks, and promotional journeys that turn visitors into connected customers.",
+    image: sadv,
+  },
+  {
+    title: "012 Services",
+    tags: ["Wordpress", "Elementor", "PHP"],
+    color: "#1f3bb3",
+    href: "https://012services.co.za/",
+    category: "Website",
+    description:
+      "A professional digital platform built to establish trust, showcase expertise, and drive engagement. Designed and developed with WordPress and Elementor, the site combines clean visuals, intuitive navigation, and responsive performance to reflect the brand’s reliability and compliance-focused service excellence.",
+    image: services012,
+  },
+  {
+    title: "Frampol Africa",
+    tags: ["React", "Next.js", "Supabase"],
+    color: "#7a1e1e",
+    href: "https://www.frampolafrica.com/",
+    category: "Website",
+    description:
+      "A high-performance digital platform built to communicate strength, reliability, and industry expertise. Developed with React, Next.js, and Supabase, the site combines custom layouts, refined design, and advanced optimisation to showcase Frampol’s IT, internet, and business solutions with speed and clarity.",
+    image: frampol,
+  },
+  {
+    title: "I.F Packaging",
+    tags: ["Wordpress", "Elementor", "Custom Code"],
+    color: "#dfe0dc",
+    href: "https://ifpackaging.co.za/",
+    category: "Website",
+    description:
+      "A modern digital experience built to reflect innovation, sustainability, and quality. Developed with WordPress, Elementor, custom code, and tailored plugins, the site combines immersive visuals, seamless animations, and intuitive navigation to showcase I.F Packaging’s eco-friendly solutions with clarity and impact.",
+    image: ifPackaging,
   },
 ];
 

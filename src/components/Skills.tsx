@@ -3,7 +3,7 @@
 import Image, { type StaticImageData } from "next/image";
 import avroyLogo from "@/images/logos/avroy.png";
 import cloudLogo from "@/images/logos/cloud.png";
-import frampolLogo from "@/images/frampol.png";
+import frampolLogo from "@/images/logos/frampol-2.png";
 import generation from "@/images/logos/generation.png";
 import glxLogo from "@/images/logos/glx.png";
 import kfcLogo from "@/images/logos/kfc.png";

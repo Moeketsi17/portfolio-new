@@ -16,6 +16,7 @@ import tom from "@/images/tomjachu.png";
 import eliashib from "@/images/eliashib lap.png";
 import zentry from "@/images/zentry.png";
 import skd from "@/images/skd.png";
+import ifPackaging from "@/images/I.F Packaging.png";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -152,6 +153,16 @@ const projects: Project[] = [
     description:
       "A precision-focused digital platform built to reflect industrial expertise, technical innovation, and reliability. Developed with WordPress and Salient, the site combines bold design, streamlined navigation, and responsive performance to showcase SKD Tapes’ specialist adhesive, security, and conversion solutions while delivering a seamless experience for clients across diverse industries.",
     image: skd,
+  },
+  {
+    title: "IF Packaging",
+    tags: ["Wordpress", "Elementor", "PHP"],
+    color: "#3c4654",
+    href: "https://ifpackaging.co.za/",
+    category: "Website",
+    description:
+      "A custom packaging website built to communicate quality, sustainability, and practical product guidance. The experience helps customers explore packaging solutions, understand the brand's manufacturing strengths, and request custom quotes with a clear, responsive journey.",
+    image: ifPackaging,
   },
 ];
 

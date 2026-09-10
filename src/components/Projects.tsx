@@ -20,7 +20,7 @@ import vuma from "@/images/vuma.png";
 import sadv from "@/images/sadv.png";
 import services012 from "@/images/012-services.png";
 import frampol from "@/images/frampol.png";
-import ifPackaging from "@/images/if-packaging.png";
+import ifPackaging from "@/images/I.F Packaging.png";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 

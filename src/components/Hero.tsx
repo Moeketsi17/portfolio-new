@@ -15,12 +15,6 @@ export function Hero() {
 
   useGSAP(
     () => {
-      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-      if (reduceMotion) {
-        return;
-      }
-
       const getWordDistance = () => Math.min(window.innerWidth * 0.16, 220);
       const getPipeScale = () => {
         if (!frontEndRef.current || !slashRef.current || !webRef.current) {

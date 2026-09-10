@@ -2,8 +2,9 @@
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP, SplitText);
 
 export function ScrollSlide() {
   useGSAP(() => {
@@ -15,55 +16,48 @@ export function ScrollSlide() {
       return;
     }
 
-    const innerElements = elements.map((element) => {
-      const existingInner = element.firstElementChild;
-
-      if (existingInner?.classList.contains("scroll-slide__inner")) {
-        return existingInner as HTMLElement;
-      }
-
-      const inner = document.createElement("span");
-      inner.className = "scroll-slide__inner";
-
-      while (element.firstChild) {
-        inner.appendChild(element.firstChild);
-      }
-
-      element.appendChild(inner);
-      return inner;
-    });
-
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (reduceMotion) {
-      gsap.set(innerElements, { yPercent: 0 });
-      return;
-    }
+    const hasIntersectionObserver = "IntersectionObserver" in window;
+    const revealed = new WeakSet<HTMLElement>();
+    const splitByElement = new Map<HTMLElement, SplitText>();
 
     let observer: IntersectionObserver | undefined;
     let animationFrameId = 0;
+    let cancelled = false;
 
-    const revealElement = (innerElement: Element) => {
-      gsap.to(innerElement, {
-        yPercent: 0,
-        duration: 0.9,
-        ease: "power3.out",
-      });
+    const revealElement = (element: HTMLElement, animate: boolean) => {
+      revealed.add(element);
+
+      const lines = splitByElement.get(element)?.lines ?? [];
+
+      if (lines.length === 0) {
+        return;
+      }
+
+      gsap.killTweensOf(lines);
+
+      if (animate) {
+        gsap.to(lines, {
+          yPercent: 0,
+          duration: 0.9,
+          ease: "power3.out",
+          stagger: 0.08,
+        });
+      } else {
+        gsap.set(lines, { yPercent: 0 });
+      }
     };
 
     const revealVisibleElements = () => {
-      innerElements.forEach((innerElement) => {
-        const parentElement = innerElement.parentElement;
-
-        if (!parentElement) {
+      elements.forEach((element) => {
+        if (revealed.has(element)) {
           return;
         }
 
-        const bounds = parentElement.getBoundingClientRect();
+        const bounds = element.getBoundingClientRect();
 
         if (bounds.top < window.innerHeight * 0.85 && bounds.bottom > 0) {
-          revealElement(innerElement);
-          observer?.unobserve(parentElement);
+          revealElement(element, true);
+          observer?.unobserve(element);
         }
       });
     };
@@ -73,9 +67,34 @@ export function ScrollSlide() {
       animationFrameId = window.requestAnimationFrame(revealVisibleElements);
     };
 
-    const setupId = window.setTimeout(() => {
-      if (!("IntersectionObserver" in window)) {
-        innerElements.forEach((innerElement) => gsap.set(innerElement, { yPercent: 0 }));
+    const buildSplit = (element: HTMLElement) => {
+      const split = SplitText.create(element, {
+        type: "lines",
+        mask: "lines",
+        linesClass: "scroll-slide__line",
+        autoSplit: true,
+        onSplit: (self) => {
+          // Runs on the initial split and again whenever a resize or font swap
+          // reflows the copy, so keep hidden lines hidden and revealed lines shown.
+          const shouldShow = !hasIntersectionObserver || revealed.has(element);
+
+          gsap.set(self.lines, { yPercent: shouldShow ? 0 : 110 });
+        },
+      });
+
+      splitByElement.set(element, split);
+      return split;
+    };
+
+    const setup = () => {
+      if (cancelled) {
+        return;
+      }
+
+      elements.forEach(buildSplit);
+
+      if (!hasIntersectionObserver) {
+        elements.forEach((element) => revealElement(element, false));
         return;
       }
 
@@ -86,58 +105,46 @@ export function ScrollSlide() {
               return;
             }
 
-            const innerElement = entry.target.firstElementChild;
-
-            if (!innerElement?.classList.contains("scroll-slide__inner")) {
-              return;
-            }
-
-            revealElement(innerElement);
+            revealElement(entry.target as HTMLElement, true);
             observer?.unobserve(entry.target);
           });
         },
         { rootMargin: "0px 0px -15% 0px" },
       );
 
-      innerElements.forEach((innerElement) => {
-        const parentElement = innerElement.parentElement;
+      elements.forEach((element) => {
+        const isAboveRevealLine =
+          element.getBoundingClientRect().top <= window.innerHeight * 0.85;
 
-        if (!parentElement) {
-          return;
+        if (isAboveRevealLine) {
+          revealElement(element, false);
+        } else {
+          observer?.observe(element);
         }
-
-        const isBelowRevealLine =
-          parentElement.getBoundingClientRect().top > window.innerHeight * 0.85;
-
-        gsap.set(innerElement, { yPercent: isBelowRevealLine ? 110 : 0 });
-        observer?.observe(parentElement);
       });
 
       revealVisibleElements();
       window.addEventListener("resize", scheduleRevealCheck);
-    }, 150);
+    };
+
+    const fontsReady =
+      "fonts" in document ? document.fonts.ready : Promise.resolve();
+
+    fontsReady.then(() => {
+      window.setTimeout(setup, 0);
+    });
 
     return () => {
-      window.clearTimeout(setupId);
+      cancelled = true;
       window.cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", scheduleRevealCheck);
       observer?.disconnect();
 
-      innerElements.forEach((innerElement) => {
-        const parent = innerElement.parentElement;
-
-        if (!parent) {
-          return;
-        }
-
-        gsap.killTweensOf(innerElement);
-
-        while (innerElement.firstChild) {
-          parent.insertBefore(innerElement.firstChild, innerElement);
-        }
-
-        innerElement.remove();
+      splitByElement.forEach((split) => {
+        gsap.killTweensOf(split.lines);
+        split.revert();
       });
+      splitByElement.clear();
     };
   });
 

@@ -16,7 +16,7 @@ import tom from "@/images/tomjachu.png";
 import eliashib from "@/images/eliashib lap.png";
 import zentry from "@/images/zentry.png";
 import skd from "@/images/skd.png";
-import vuma from "@/images/vuma.png";
+import vuma from "@/images/vuma-project.png";
 import sadv from "@/images/sadv.png";
 import services012 from "@/images/012-services.png";
 import frampol from "@/images/frampol.png";
@@ -159,16 +159,6 @@ const projects: Project[] = [
     image: skd,
   },
   {
-    title: "Vuma",
-    tags: ["Wordpress", "Divi", "PHP"],
-    color: "#e6007e",
-    href: "https://getvumafibre.co.za/",
-    category: "Website",
-    description:
-      "A streamlined digital platform built to drive lead generation and simplify connectivity. Developed with WordPress and Divi, the site pairs bold design, intuitive navigation, and smooth interactions to help customers explore high-speed fibre, check coverage, and get connected with confidence.",
-    image: vuma,
-  },
-  {
     title: "SADV",
     tags: ["Wordpress", "PHP", "Javascript"],
     color: "#0a3d91",
@@ -177,6 +167,16 @@ const projects: Project[] = [
     description:
       "A vibrant, campaign-driven platform built to make affordable prepaid fibre feel effortless and rewarding. Developed with WordPress and custom functionality, the site blends playful visuals, clear package comparisons, coverage checks, and promotional journeys that turn visitors into connected customers.",
     image: sadv,
+  },
+  {
+    title: "Vuma",
+    tags: ["Wordpress", "Divi", "PHP"],
+    color: "#e6007e",
+    href: "https://getvumafibre.co.za/",
+    category: "Website",
+    description:
+      "A streamlined digital platform built to drive lead generation and simplify connectivity. Developed with WordPress and Divi, the site pairs bold design, intuitive navigation, and smooth interactions to help customers explore high-speed fibre, check coverage, and get connected with confidence.",
+    image: vuma,
   },
   {
     title: "012 Services",

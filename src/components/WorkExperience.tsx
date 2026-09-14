@@ -8,22 +8,22 @@ const experiences: Experience[] = [
   {
     role: "Front-End Developer",
     company: "Stylistic",
-    period: "2025 - Present",
+    period: "Oct 2025 to Present",
   },
   {
     role: "Web Developer",
     company: "Wetpaint Advertising",
-    period: "2024 - 2025",
+    period: "Sep 2023 to Sep 2025",
   },
   {
     role: "Front-End Developer",
-    company: "CloudCo",
-    period: "2023 - 2024",
+    company: "CloudCo DevOps",
+    period: "Apr 2023 to Sep 2024",
   },
   {
     role: "Junior Front-End Developer",
-    company: "Worvic",
-    period: "2020 - 2022",
+    company: "WORVIC",
+    period: "Feb 2020 to Aug 2022",
   },
 ];
 
@@ -53,19 +53,19 @@ export function WorkExperience() {
           >
             <h3
               data-scroll-slide
-              className="min-w-0 font-sans text-base font-semibold capitalize leading-tight tracking-tight"
+              className="min-w-0 font-sans text-base font-normal capitalize leading-tight tracking-tight"
             >
               {experience.role}
             </h3>
             <p
               data-scroll-slide
-              className="min-w-0 font-sans text-base font-bold capitalize tracking-[0.12em] text-muted sm:text-center sm:tracking-[0.18em]"
+              className="min-w-0 font-sans text-base font-normal capitalize tracking-[0.12em] text-muted sm:text-left sm:tracking-[0.18em]"
             >
               {experience.company}
             </p>
             <p
               data-scroll-slide
-              className="min-w-0 font-sans text-base font-semibold capitalize tracking-[0.12em] text-foreground sm:text-right sm:tracking-[0.16em]"
+              className="min-w-0 font-sans text-base font-normal capitalize tracking-[0.12em] text-foreground sm:text-right sm:tracking-[0.16em]"
             >
               {experience.period}
             </p>

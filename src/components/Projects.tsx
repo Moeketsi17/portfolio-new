@@ -17,7 +17,7 @@ import eliashib from "@/images/eliashib lap.png";
 import zentry from "@/images/zentry.png";
 import skd from "@/images/skd.png";
 import vuma from "@/images/vuma-project.png";
-import sadv from "@/images/sadv.png";
+import sadv from "@/images/sadv-.png";
 import services012 from "@/images/012-services.png";
 import frampol from "@/images/frampol.png";
 import ifPackaging from "@/images/I.F Packaging.png";

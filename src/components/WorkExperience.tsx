@@ -59,13 +59,13 @@ export function WorkExperience() {
             </h3>
             <p
               data-scroll-slide
-              className="min-w-0 font-sans text-base font-normal capitalize tracking-[0.12em] text-muted sm:text-left sm:tracking-[0.18em]"
+              className="min-w-0 font-sans text-base font-normal capitalize text-muted sm:text-left"
             >
               {experience.company}
             </p>
             <p
               data-scroll-slide
-              className="min-w-0 font-sans text-base font-normal capitalize tracking-[0.12em] text-foreground sm:text-right sm:tracking-[0.16em]"
+              className="min-w-0 font-sans text-base font-normal capitalize leading-tight tracking-tight text-foreground sm:text-right"
             >
               {experience.period}
             </p>

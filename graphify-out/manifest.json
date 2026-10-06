@@ -1,0 +1,122 @@
+{
+  "eslint.config.mjs": {
+    "mtime": 1783017678.3894727,
+    "seen": 1791312003.461932,
+    "ast_hash": "4b7c86e3759d18f97c5e5c01d3bb0c73",
+    "semantic_hash": "4b7c86e3759d18f97c5e5c01d3bb0c73"
+  },
+  "next-env.d.ts": {
+    "mtime": 1786809946.386385,
+    "seen": 1791312003.461932,
+    "ast_hash": "d0f8375ae1199dc7acd3977fc33b78b8",
+    "semantic_hash": "d0f8375ae1199dc7acd3977fc33b78b8"
+  },
+  "next.config.ts": {
+    "mtime": 1783017321.66607,
+    "seen": 1791312003.461932,
+    "ast_hash": "daad32b4de0b92afe04301ebf0a6cc76",
+    "semantic_hash": "daad32b4de0b92afe04301ebf0a6cc76"
+  },
+  "package.json": {
+    "mtime": 1783070711.7192988,
+    "seen": 1791312003.461932,
+    "ast_hash": "8c17af0bbcd4abb9be49dd0db4371629",
+    "semantic_hash": "8c17af0bbcd4abb9be49dd0db4371629"
+  },
+  "postcss.config.mjs": {
+    "mtime": 1783017321.6670697,
+    "seen": 1791312003.461932,
+    "ast_hash": "239f3ebf717465dc636818a1a619398d",
+    "semantic_hash": "239f3ebf717465dc636818a1a619398d"
+  },
+  "scripts/verify-browser.mjs": {
+    "mtime": 1788291742.4160647,
+    "seen": 1791312003.461932,
+    "ast_hash": "d01e895be6a8a80d0c9c2415af3907e4",
+    "semantic_hash": "d01e895be6a8a80d0c9c2415af3907e4"
+  },
+  "src/app/layout.tsx": {
+    "mtime": 1786734001.0054626,
+    "seen": 1791312003.461932,
+    "ast_hash": "048195217ca1944fedb9dec7a87ef739",
+    "semantic_hash": "048195217ca1944fedb9dec7a87ef739"
+  },
+  "src/app/page.tsx": {
+    "mtime": 1784147616.6682005,
+    "seen": 1791312003.461932,
+    "ast_hash": "a331d550453287dde34bce82f8e05f70",
+    "semantic_hash": "a331d550453287dde34bce82f8e05f70"
+  },
+  "src/components/About.tsx": {
+    "mtime": 1786809920.233387,
+    "seen": 1791312003.461932,
+    "ast_hash": "1da18e71089ffbe9243880efb008799f",
+    "semantic_hash": "1da18e71089ffbe9243880efb008799f"
+  },
+  "src/components/Contact.tsx": {
+    "mtime": 1786734092.8093534,
+    "seen": 1791312003.461932,
+    "ast_hash": "95220e6da93ff444f533cbfcd12caceb",
+    "semantic_hash": "95220e6da93ff444f533cbfcd12caceb"
+  },
+  "src/components/Footer.tsx": {
+    "mtime": 1783716694.3883128,
+    "seen": 1791312003.461932,
+    "ast_hash": "5ac05323f967f897d359071e249cd00e",
+    "semantic_hash": "5ac05323f967f897d359071e249cd00e"
+  },
+  "src/components/Hero.tsx": {
+    "mtime": 1789065780.1838455,
+    "seen": 1791312003.461932,
+    "ast_hash": "7e2af3c696ed454d9bcc8aa96f216365",
+    "semantic_hash": "7e2af3c696ed454d9bcc8aa96f216365"
+  },
+  "src/components/Nav.tsx": {
+    "mtime": 1786798940.989638,
+    "seen": 1791312003.461932,
+    "ast_hash": "7ea0836bd829b3b1937ce4ea3ec79558",
+    "semantic_hash": "7ea0836bd829b3b1937ce4ea3ec79558"
+  },
+  "src/components/Projects.tsx": {
+    "mtime": 1789403709.9912,
+    "seen": 1791312003.461932,
+    "ast_hash": "2850477c7d29dd85e089e4af7b1984b2",
+    "semantic_hash": "2850477c7d29dd85e089e4af7b1984b2"
+  },
+  "src/components/ScrollSlide.tsx": {
+    "mtime": 1789065780.1865056,
+    "seen": 1791312003.461932,
+    "ast_hash": "91fcb51f45ab6f562f6ac57b44508fbb",
+    "semantic_hash": "91fcb51f45ab6f562f6ac57b44508fbb"
+  },
+  "src/components/Skills.tsx": {
+    "mtime": 1789066264.37698,
+    "seen": 1791312003.461932,
+    "ast_hash": "e8479402905f7aabaeca00f60d90bf01",
+    "semantic_hash": "e8479402905f7aabaeca00f60d90bf01"
+  },
+  "src/components/SmoothScroll.tsx": {
+    "mtime": 1788291622.9856021,
+    "seen": 1791312003.461932,
+    "ast_hash": "aafa01a183240090878d413cb3dea9f8",
+    "semantic_hash": "aafa01a183240090878d413cb3dea9f8"
+  },
+  "src/components/Technologies.tsx": {
+    "mtime": 1786734059.2148435,
+    "seen": 1791312003.461932,
+    "ast_hash": "063588b935a698f5d4e80930dd848789",
+    "semantic_hash": "063588b935a698f5d4e80930dd848789"
+  },
+  "src/components/WorkExperience.tsx": {
+    "mtime": 1789496875.770943,
+    "seen": 1791312003.461932,
+    "ast_hash": "a71c6fc96a70e3cc0ddd915ef159e7e3",
+    "semantic_hash": "a71c6fc96a70e3cc0ddd915ef159e7e3"
+  },
+  "tsconfig.json": {
+    "mtime": 1783017321.6680684,
+    "seen": 1791312003.461932,
+    "ast_hash": "b400aa3989d1ca4e7b0363f77e9ab54d",
+    "semantic_hash": "b400aa3989d1ca4e7b0363f77e9ab54d"
+  }
+}

@@ -21,6 +21,7 @@ import sadv from "@/images/sadv-.png";
 import services012 from "@/images/012-services.png";
 import frampol from "@/images/frampol.png";
 import ifPackaging from "@/images/I.F Packaging.png";
+import grainSA from "@/images/Grain-SA-Laptop.png";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -207,6 +208,16 @@ const projects: Project[] = [
     description:
       "A modern digital experience built to reflect innovation, sustainability, and quality. Developed with WordPress, Elementor, custom code, and tailored plugins, the site combines immersive visuals, seamless animations, and intuitive navigation to showcase I.F Packaging’s eco-friendly solutions with clarity and impact.",
     image: ifPackaging,
+  },
+  {
+    title: "Grain SA",
+    tags: ["WordPress", "PHP", "JavaScript", "CSS"],
+    color: "#ae913b",
+    href: "https://grainsa.co.za/",
+    category: "Website",
+    description:
+      "A website for South Africa's grain producers, bringing together organisational information, industry resources, and member content. Built with WordPress, PHP, JavaScript, and CSS.",
+    image: grainSA,
   },
 ];
 

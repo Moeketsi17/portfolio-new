@@ -61,6 +61,26 @@ const projectLayouts = [
 
 const projects: Project[] = [
   {
+    title: "Custom Dashboard",
+    tags: ["React", "JavaScript", "HTML", "CSS", "Supabase"],
+    color: "#0b1020",
+    href: "https://app.blackdotstudios.co.za/demo",
+    category: "Custom Web App",
+    description:
+      "A replica of a client's internal business dashboard with multiple user roles, built to make the day-to-day running of the business easier. It covers everything from quoting and invoicing to HR and payroll. Built with React, JavaScript, HTML, CSS, and Supabase.",
+    image: customDashboard,
+  },
+  {
+    title: "Grain SA",
+    tags: ["WordPress", "PHP", "JavaScript", "CSS"],
+    color: "#ae913b",
+    href: "https://grainsa.co.za/",
+    category: "Website",
+    description:
+      "A website for South Africa's grain producers, bringing together organisational information, industry resources, and member content. Built with WordPress, PHP, JavaScript, and CSS.",
+    image: grainSA,
+  },
+  {
     title: "Eazy-Biz",
     tags: ["Wordpress", "Javascript", "PHP"],
     color: "#fff",
@@ -209,26 +229,6 @@ const projects: Project[] = [
     description:
       "A modern digital experience built to reflect innovation, sustainability, and quality. Developed with WordPress, Elementor, custom code, and tailored plugins, the site combines immersive visuals, seamless animations, and intuitive navigation to showcase I.F Packaging’s eco-friendly solutions with clarity and impact.",
     image: ifPackaging,
-  },
-  {
-    title: "Grain SA",
-    tags: ["WordPress", "PHP", "JavaScript", "CSS"],
-    color: "#ae913b",
-    href: "https://grainsa.co.za/",
-    category: "Website",
-    description:
-      "A website for South Africa's grain producers, bringing together organisational information, industry resources, and member content. Built with WordPress, PHP, JavaScript, and CSS.",
-    image: grainSA,
-  },
-  {
-    title: "Custom Dashboard",
-    tags: ["React", "JavaScript", "HTML", "CSS", "Supabase"],
-    color: "#0b1020",
-    href: "https://app.blackdotstudios.co.za/demo",
-    category: "Custom Web App",
-    description:
-      "A replica of a client's internal business dashboard with multiple user roles, built to make the day-to-day running of the business easier. It covers everything from quoting and invoicing to HR and payroll. Built with React, JavaScript, HTML, CSS, and Supabase.",
-    image: customDashboard,
   },
 ];
 

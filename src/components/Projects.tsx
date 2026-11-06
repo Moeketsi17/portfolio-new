@@ -22,6 +22,7 @@ import services012 from "@/images/012-services.png";
 import frampol from "@/images/frampol.png";
 import ifPackaging from "@/images/I.F Packaging.png";
 import grainSA from "@/images/Grain-SA-Laptop.png";
+import customDashboard from "@/images/custom-dashboard.png";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -218,6 +219,16 @@ const projects: Project[] = [
     description:
       "A website for South Africa's grain producers, bringing together organisational information, industry resources, and member content. Built with WordPress, PHP, JavaScript, and CSS.",
     image: grainSA,
+  },
+  {
+    title: "Custom Dashboard",
+    tags: ["React", "JavaScript", "HTML", "CSS", "Supabase"],
+    color: "#0b1020",
+    href: "https://app.blackdotstudios.co.za/demo",
+    category: "Custom Web App",
+    description:
+      "A replica of a client's internal business dashboard with multiple user roles, built to make the day-to-day running of the business easier. It covers everything from quoting and invoicing to HR and payroll. Built with React, JavaScript, HTML, CSS, and Supabase.",
+    image: customDashboard,
   },
 ];
 

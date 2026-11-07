@@ -23,6 +23,7 @@ import frampol from "@/images/frampol.png";
 import ifPackaging from "@/images/I.F Packaging.png";
 import grainSA from "@/images/Grain-SA-Laptop.png";
 import customDashboard from "@/images/custom-dashboard.png";
+import mzansiElecxions from "@/images/mzansi-elecxions.png";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -60,6 +61,16 @@ const projectLayouts = [
 ];
 
 const projects: Project[] = [
+  {
+    title: "Mzansi Elecxions",
+    tags: ["Next.js", "React", "TypeScript", "Data Viz"],
+    color: "#0a1a4a",
+    href: "https://mzansi-elecxions.vercel.app/",
+    category: "Data Web App",
+    description:
+      "An interactive record of every South African general election since 1994, covering seats won, turnout trends, provincial results, and the news events between votes. It includes a dot-per-seat parliament chart that shows the 2024 result, when no party reached a majority. Built with Next.js and React, deployed on Vercel.",
+    image: mzansiElecxions,
+  },
   {
     title: "Custom Dashboard",
     tags: ["React", "JavaScript", "HTML", "CSS", "Supabase"],

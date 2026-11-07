@@ -92,7 +92,17 @@ const projects: Project[] = [
     image: grainSA,
   },
   {
-    title: "Eazy-Biz",
+    title: "Eazy-Biz Ops",
+    tags: ["React", "Supabase", "Business Ops"],
+    color: "#fff",
+    href: "https://eazybiz.blackdotstudios.co.za/",
+    category: "Custom Web App",
+    description:
+      "A custom business management platform built to simplify operations, improve efficiency, and support smarter decision-making. Developed with React on the frontend and Supabase powering the backend.",
+    image: eazyBizPhone,
+  },
+  {
+    title: "LeakBot",
     tags: ["Wordpress", "Javascript", "PHP"],
     color: "#fff",
     href: "https://leakbot.io/",
@@ -110,16 +120,6 @@ const projects: Project[] = [
     description:
       "A refined digital experience crafted to capture the charm, elegance, and personality of a boutique dining destination. Built with WordPress, the site blends sophisticated design, seamless navigation, and responsive performance to showcase Bar Gigi’s unique atmosphere, curated menu, and memorable hospitality while creating an inviting experience for every guest",
     image: gigi,
-  },
-  {
-    title: "Eazy-Biz Ops",
-    tags: ["React", "Supabase", "Business Ops"],
-    color: "#fff",
-    href: "https://eazybiz.blackdotstudios.co.za/",
-    category: "Custom Web App",
-    description:
-      "A custom business management platform built to simplify operations, improve efficiency, and support smarter decision-making. Developed with React on the frontend and Supabase powering the backend.",
-    image: eazyBizPhone,
   },
   {
     title: "ByteHire",

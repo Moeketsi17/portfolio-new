@@ -68,7 +68,7 @@ const projects: Project[] = [
     href: "https://mzansi-elecxions.vercel.app/",
     category: "Data Web App",
     description:
-      "An interactive record of every South African general election since 1994, covering seats won, turnout trends, provincial results, and the news events between votes. It includes a dot-per-seat parliament chart that shows the 2024 result, when no party reached a majority. Built with Next.js and React, deployed on Vercel.",
+      "An interactive record of every South African general election since 1994, covering seats won, turnout trends, provincial results, and the news events between votes, plus a live count of the 2026 local elections. National totals are the Electoral Commission's (IEC) official results, local and live results come from the IEC results dashboard, and 2009 and 2014 provincial and municipal detail comes from OpenUp's open elections dataset.",
     image: mzansiElecxions,
   },
   {

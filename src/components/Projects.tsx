@@ -9,7 +9,7 @@ import { useGSAP } from "@gsap/react";
 import eazyBizPhone from "@/images/eazy-biz-phone.png";
 import byteHire from "@/images/ByteHire (2).png";
 import leakBot from "@/images/Leakbot.png";
-import gigi from "@/images/Gigi Bottega.png";
+import gigi from "@/images/gigi-bottega.png";
 import gritSpace from "@/images/grit space (2).png";
 import brain from "@/images/brain wave.png";
 import tom from "@/images/tomjachu.png";
@@ -118,7 +118,7 @@ const projects: Project[] = [
     href: "https://gigibottega.co.uk/",
     category: "eCommerce",
     description:
-      "A refined digital experience crafted to capture the charm, elegance, and personality of a boutique dining destination. Built with WordPress, the site blends sophisticated design, seamless navigation, and responsive performance to showcase Bar Gigi’s unique atmosphere, curated menu, and memorable hospitality while creating an inviting experience for every guest",
+      "An online store for Gigi Bottega, a UK fashion boutique. Built with WordPress and WooCommerce, it lets shoppers browse new arrivals, collections, brands, curated edits, and sale items, with a clean, editorial design that puts the clothing first.",
     image: gigi,
   },
   {
